@@ -48,6 +48,7 @@ side of the application interface.
 ## DO NOT implement a login system for your application. You will lose points if you do. This is for two reasons:
 ▶ Properly handling authentication is complicated and I don’t want you to get a false sense of confidence from doing it the naïve way and thinking it’s
 right.
+
 ▶ It makes grading the application harder. Several groups in the past have made logging on necessary to access their interface and forgotten to provide
 the credentials needed to access the portions of the pages that need to be checked for requirements.
 
@@ -58,26 +59,31 @@ Obviously, any of the tools that have been covered in class are acceptable. This
 PHP/HTML forms/PDO.
 Each semester, I have a lot of people asking me if they can use other tools, such as JavaScript/CSS/etc. The answer I give is that I do not have a problem
 with the use of such tools, as long as they’re not a shortcut that allows you to skip the work of actually doing the project.
+
 This means that any of the code implementing requirements detailed in this write-up must be designed and written by your group. Obviously this would
 not be the case if you just downloaded and included a library that already did the entire project.
 However, outside of the main functionality, it is acceptable to use libraries. Things like Bootstrap, React.js, etc. are acceptable, as long as they’re supple-
 menting your work, and not replacing it.
-As an example, if your group wants to implement more dynamic functionality with JavaScript and the DOM, any code that interfaces with the database
-must be written by members of the group.
+As an example, if your group wants to implement more dynamic functionality with JavaScript and the DOM, any code that interfaces with the database must be written by members of the group.
+
 You can use CSS and JQuery all you want to change the appearance of the webpage, but since these tools were not discussed in class, they will obviously
 not be requirements.
 # Some notes
 ▶ This is a group project, and you need to be able to coordinate with the others in your group. This is the reason that NIU provides Teams, so I would
+
 encourage you to coordinate through it, though this is not a requirement. I know that some of you prefer to use Discord/Telegram/etc. and this is not
 a problem, but remember that each group is responsible for implementing their own application: code should not be shared between groups, and
 any discussions should be held in a setting not viewable by people outside of the group.
+
 ▶ This project is designed to give everyone a chance to apply their knowledge, and to learn where the gaps in that knowledge may be. To that end,
 please make sure that all of your group members are involved in each of the steps. It might be easy to carry/be carried, but it is better for everyone if
 it’s actually a team effort.
+
 ▶ I would recommend setting up some sort of version control repository (git is one that is commonly used) to coordinate the coding between members
 of your group. If you move the database login information into a separate file that is included, you can minimize the amount of code that needs to
 change between users as they independently test/develop. Students in the past have set up GitHub repos for their group to great effect. Make sure,
 however, that only your group members have access to the repo.
+
 ▶ At the end of the project, there will be a separate survey where you will be asked what contributions you and each of your group members made
 to the project. This will give you an opportunity to let me know of any issues with group members not pulling their weight. Students who don’t
 contribute to the completion of their group’s project should not expect to get points for it.
