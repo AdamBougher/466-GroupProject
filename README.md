@@ -45,13 +45,15 @@ The free queue should be sorted based on the time the user signed up; first in, 
 or by the amount paid. Make sure to implement some mechanism to switch the sort order. The DJ needs to be able to see who is in each queue through his
 side of the application interface.
 
-DO NOT implement a login system for your application. You will lose points if you do. This is for two reasons:
+## DO NOT implement a login system for your application. You will lose points if you do. This is for two reasons:
 ▶ Properly handling authentication is complicated and I don’t want you to get a false sense of confidence from doing it the naïve way and thinking it’s
 right.
 ▶ It makes grading the application harder. Several groups in the past have made logging on necessary to access their interface and forgotten to provide
 the credentials needed to access the portions of the pages that need to be checked for requirements.
-DO NOT store any real payment information in your database.
-Allowed tools
+
+## DO NOT store any real payment information in your database.
+
+# Allowed tools
 Obviously, any of the tools that have been covered in class are acceptable. This mostly means using our MariaDB server (an absolute requirement), and
 PHP/HTML forms/PDO.
 Each semester, I have a lot of people asking me if they can use other tools, such as JavaScript/CSS/etc. The answer I give is that I do not have a problem
@@ -64,7 +66,7 @@ As an example, if your group wants to implement more dynamic functionality with 
 must be written by members of the group.
 You can use CSS and JQuery all you want to change the appearance of the webpage, but since these tools were not discussed in class, they will obviously
 not be requirements.
-Some notes
+# Some notes
 ▶ This is a group project, and you need to be able to coordinate with the others in your group. This is the reason that NIU provides Teams, so I would
 encourage you to coordinate through it, though this is not a requirement. I know that some of you prefer to use Discord/Telegram/etc. and this is not
 a problem, but remember that each group is responsible for implementing their own application: code should not be shared between groups, and
@@ -79,7 +81,7 @@ however, that only your group members have access to the repo.
 ▶ At the end of the project, there will be a separate survey where you will be asked what contributions you and each of your group members made
 to the project. This will give you an opportunity to let me know of any issues with group members not pulling their weight. Students who don’t
 contribute to the completion of their group’s project should not expect to get points for it.
-What to turn in?
+# What to turn in?
 Submit, via Blackboard (one submission per group), the following:
 1 The ER diagram (in PDF format) that you designed for the database that is used for the application. This should be your first step, and the other
 steps should be based upon this ER diagram. It would be best to draw this with some sort of software, but if no one in your group can make that
