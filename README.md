@@ -1,4 +1,4 @@
-# 466-GroupProject
+https://docs.google.com/document/d/1tYnUuZ3UKk0QAM8CJYoqCt29FRqa0Y7qVqhegoT9Xjs/edit 
 # Introduction
 This is the group project for 466, in which you will design and develop and application using the tools covered in the class. You should work together in the groups which you chose, or in the groups which will be assigned to you if you did not elect to choose your own. There will be no individual submissions, just the one for a group.
 # Application
