@@ -115,7 +115,6 @@ $results = $stmt->fetchAll();
         }
 
         .back-button {
-            position: absolute;
             bottom: 0;
             left: 0;
             display: inline-block;

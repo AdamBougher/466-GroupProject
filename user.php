@@ -138,7 +138,6 @@ $songs = $pdo->query("SELECT * FROM Song")->fetchAll();
         }
 
         .back-button {
-            position: absolute;
             bottom: 0;
             left: 0;
             display: inline-block;
