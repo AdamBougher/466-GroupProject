@@ -1,6 +1,6 @@
 <?php
-$username = "z2012420";
-$password = "2003Mar20";
+$username = "";
+$password = "";
 
 try { 
     $dsn = "mysql:host=courses;dbname=z2012420";
