@@ -88,12 +88,23 @@ $results = $stmt->fetchAll();
             /* Light text */
         }
 
+        /*.container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }*/
+
         .container {
             width: 100%;
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
 
         h1 {
             color: #ff43a4;
@@ -115,15 +126,21 @@ $results = $stmt->fetchAll();
         }
 
         .back-button {
+            
+            position: fixed;
+            /*position: absolute;
+            position: auto;*/
             bottom: 0;
             left: 0;
             display: inline-block;
-            padding: 10px 20px;
+            padding: 15px 25px;
             margin-top: 20px;
             color: #fff;
             background-color: #ff43a4;
-            border: none;
+            font-size: 18px;
+            /* Neon green for buttons */
             text-decoration: none;
+            border-radius: 5px;
             transition: all 0.3s ease-in-out;
             /* Smooth transition */
             box-shadow: 0 0 5px #ff43a4,
@@ -132,9 +149,10 @@ $results = $stmt->fetchAll();
                 /* Middle glow */
                 0 0 15px #ff43a4,
                 /* Outer glow */
-                0 0 5px #ff43a4;
+                0 0 2px #ff43a4;
             /* Far outer glow */
         }
+
 
         .back-button:hover {
             background-color: #00ff41;
@@ -223,7 +241,7 @@ $results = $stmt->fetchAll();
         <?php endif; ?>
     </div>
     <div>
-        <a href="user.php" class="back-button">Back to Dashboard</a>
+        <a href="user.php" class="back-button">Back</a>
     </div>
 </body>
 

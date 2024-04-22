@@ -108,6 +108,7 @@ GROUP BY q.QueueID
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            /*padding-bottom: 20px;*/
             background-color: #f0f0f0;
         }
 
@@ -118,13 +119,18 @@ GROUP BY q.QueueID
             padding: 20px;
         }
 
+        /*.content-container {
+            position: relative;
+        }*/
+
+
         .back-button {
-            position: auto;
+            position: fixed;
             bottom: 0;
             left: 0;
             display: inline-block;
             padding: 15px 25px;
-            margin-top: 70px;
+            margin-top: 20px;
             color: #fff;
             background-color: #ff43a4;
             font-size: 18px;
@@ -195,6 +201,8 @@ GROUP BY q.QueueID
         <?php endforeach; ?>
     </table>
 
+    <br>
+    <br>
     <h2>Priority Queue</h2>
     <table>
         <tr>

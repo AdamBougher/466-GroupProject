@@ -35,7 +35,6 @@
             color: #fff;
             border: none;
             background-color: #ff43a4;
-            border: none;
             border-radius: 5px;
             text-decoration: none;
             font-size: 30px;
