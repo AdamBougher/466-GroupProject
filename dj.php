@@ -119,11 +119,12 @@ GROUP BY q.QueueID
         }
 
         .back-button {
+            position: auto;
             bottom: 0;
             left: 0;
             display: inline-block;
             padding: 15px 25px;
-            margin-top: 20px;
+            margin-top: 70px;
             color: #fff;
             background-color: #ff43a4;
             font-size: 18px;
