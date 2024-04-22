@@ -22,7 +22,7 @@ function resetDatabase($pdo)
     }
 
     // Path to sql file
-    $filePath = '/home/hopper/z2012420/public_html/script.sql';
+    $filePath = '/home/hopper/ZID/public_html/script.sql';
 
     // Read the SQL file
     $sql = file_get_contents($filePath);
