@@ -104,23 +104,6 @@ GROUP BY q.QueueID
             background-color: #fff;
         }
 
-        th,
-        td {
-            width: 25%;
-            /* Each cell 25% of the width of the table */
-            border: 1px solid #999;
-            padding: 0.5rem;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f0f0f0;
-        }
-
-        td {
-            background-color: #fff;
-        }
-
         body {
             font-family: Arial, sans-serif;
             margin: 0;
