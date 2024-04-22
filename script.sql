@@ -96,7 +96,8 @@ VALUES
     (7, "Roar", 2, 1, 107),
     (8, "Perfect", 3, 1, 108),
     (9, "Echame La Culpa", 4, 1, 109),
-    (10, "Dura", 5, 5, 110);
+    (10, "Dura", 5, 5, 110),
+    (11, "Baby", 1, 1, 111);
 
 CREATE TABLE VersionOfSong (
     VersionID INT PRIMARY KEY NOT NULL,
@@ -117,7 +118,8 @@ VALUES
     (7, 7, "Remix", 207),
     (8, 8, "Acoustic", 208),
     (9, 9, "Live", 209),
-    (10, 10, "Remix", 210);
+    (10, 10, "Remix", 210),
+    (11, 11, "Acoustic", 211);
 
 
 CREATE TABLE SongContributor (
