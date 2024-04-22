@@ -115,12 +115,23 @@ GROUP BY q.QueueID
             background-color: #f0f0f0;
         }
 
+        /*.container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }*/
+
         .container {
             width: 100%;
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
 
         /*.content-container {
             position: relative;
@@ -202,7 +213,6 @@ GROUP BY q.QueueID
                 <td><?php echo $queueItem['Roles']; ?></td>
                 <td><?php echo $queueItem['UserName']; ?></td>
                 <td><?php echo $queueItem['Price']; ?></td>
-                
             </tr>
         <?php endforeach; ?>
     </table>
