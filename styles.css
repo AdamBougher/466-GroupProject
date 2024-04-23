@@ -103,6 +103,19 @@ body {
     color: #f5f5f5;
     /* Light text */
 }
+.admin-body
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #0d0c22;
+    /* Dark background */
+    color: #f5f5f5;
+}
+
 
 .container {
     width: 100%;

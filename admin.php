@@ -12,7 +12,7 @@ include 'db_connect.php';
     
 </head>
 
-<body>
+<body class="admin-body">
     <form action="reset_db.php" method="post" onsubmit="showLoader()">
         <button type="submit" class="button">Rebuild Database</button>
     </form>
