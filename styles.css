@@ -47,6 +47,40 @@ input[type="text"]:focus {
                 0 0 20px #00ff41; } */
 
 
+.button:hover {
+
+    background-color: #00ff41;
+    /* Neon pink for button hover */
+    box-shadow: 0 0 5px #00ff41,
+        /* Inner glow */
+        0 0 10px #00ff41,
+        /* Middle glow */
+        0 0 15px #00ff41,
+        /* Outer glow */
+        0 0 5px #00ff41;
+    /* Far outer glow */
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    display: none;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 input[type="submit"]:hover {
     background-color: #ff43a4;
     /* Neon pink for button hover */
