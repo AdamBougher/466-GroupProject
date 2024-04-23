@@ -58,7 +58,7 @@ $songs = $pdo->query("SELECT * FROM Song")->fetchAll();
         <p>Enter the artist name, song title, or contributor in the search box below:</p>
         <form action="search.php" method="post">
             <input type="text" name="search" placeholder="Search for songs...">
-            <input type="submit" value="Search" class="button">
+            <input type="submit" value="Search" class="search-button">
         </form>
 
         <h2>Sign Up to Sing</h2>

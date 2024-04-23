@@ -26,7 +26,7 @@ include 'db_connect.php';
     </script>
 
     <div>
-        <a href="ind.php" class="button">Back</a>
+        <a href="ind.php" class="back-button">Back</a>
     </div>
 
 </body>

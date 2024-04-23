@@ -144,7 +144,7 @@ $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
 
 
             <input type="submit" value="Submit" class="button">
-            <a href="user.php" class="back-button">Back to Dashboard</a>
+            <a href="user.php" class="back-button">Back</a>
         </form>
     </div>
 </body>
