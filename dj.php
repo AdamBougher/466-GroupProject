@@ -182,6 +182,16 @@ GROUP BY q.QueueID
         }
     </style>
 
+        <script>
+        function sortTable()
+        {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementsByTagName("table")[0];
+
+            
+        }
+       
+        </script>
 
     <title>DJ Page</title>
 </head>

@@ -1,0 +1,408 @@
+input[type="text"] {
+    background-color: #1f1b33;
+    /* Darker background for input */
+    color: #00ff41;
+    /* Neon green for input text */
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #00ff41,
+        /* Inner glow */
+        0 0 10px #00ff41,
+        /* Middle glow */
+        0 0 15px #00ff41,
+        /* Outer glow */
+        0 0 20px #00ff41;
+    /* Far outer glow */
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px #ff43a4,
+        /* Inner glow */
+        0 0 10px #ff43a4,
+        /* Middle glow */
+        0 0 15px #ff43a4,
+        /* Outer glow */
+        0 0 20px #ff43a4;
+    /* Far outer glow */
+}
+
+/*input[type="submit"] {
+            background-color: #00ff41;
+           
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            
+            box-shadow: 0 0 5px #00ff41,
+                
+                0 0 10px #00ff41,
+               
+                0 0 15px #00ff41,
+               
+                0 0 20px #00ff41; } */
+
+
+input[type="submit"]:hover {
+    background-color: #ff43a4;
+    /* Neon pink for button hover */
+    box-shadow: 0 0 5px #ff43a4,
+        /* Inner glow */
+        0 0 10px #ff43a4,
+        /* Middle glow */
+        0 0 15px #ff43a4,
+        /* Outer glow */
+        0 0 20px #ff43a4;
+    /* Far outer glow */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d0c22;
+    /* Dark background */
+    color: #f5f5f5;
+    /* Light text */
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.selected {
+    background-color: #ff43a4;
+    /* Neon pink for selected row */
+}
+
+h2 {
+    color: #00ff41;
+    /* Neon green for headers */
+    /* adjust padding */
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+.selected {
+    background-color: #ff43a4;
+    /* Neon pink for selected row */
+}
+
+
+select {
+    background-color: #1f1b33;
+    /* Darker background for select */
+    color: #00ff41;
+    /* Neon green for select text */
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #00ff41,
+        /* Inner glow */
+        0 0 10px #00ff41,
+        /* Middle glow */
+        0 0 15px #00ff41,
+        /* Outer glow */
+        0 0 20px #00ff41;
+    /* Far outer glow */
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 0 0 5px #ff43a4,
+        /* Inner glow */
+        0 0 10px #ff43a4,
+        /* Middle glow */
+        0 0 15px #ff43a4,
+        /* Outer glow */
+        0 0 20px #ff43a4;
+    /* Far outer glow */
+}
+
+
+.bold-center {
+    text-align: center;
+    font-weight: bold;
+    color: #ff43a4;
+    /* Neon pink for headers */
+}
+
+
+.back-button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    padding: 15px 25px;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #ff43a4;
+    font-size: 18px;
+    /* Neon green for buttons */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    /* Smooth transition */
+    box-shadow: 0 0 5px #ff43a4,
+        /* Inner glow */
+        0 0 10px #ff43a4,
+        /* Middle glow */
+        0 0 15px #ff43a4,
+        /* Outer glow */
+        0 0 2px #ff43a4;
+    /* Far outer glow */
+}
+
+.back-button:hover {
+    background-color: #00ff41;
+    /* Neon pink for button hover */
+    box-shadow: 0 0 5px #00ff41,
+        /* Inner glow */
+        0 0 10px #00ff41,
+        /* Middle glow */
+        0 0 15px #00ff41,
+        /* Outer glow */
+        0 0 2px #00ff41;
+    /* Far outer glow */
+}
+
+.search-button {
+    display: inline-block;
+    padding: 15px 25px;
+    margin: 10px 0;
+    margin-left: 20px;
+    color: #fff;
+    background-color: #ff43a4;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: 0 0 5px #ff43a4,
+        /* Inner glow */
+        0 0 10px #ff43a4,
+        /* Middle glow */
+        0 0 15px #ff43a4,
+        /* Outer glow */
+        0 0 2px #ff43a4;
+    /* Far outer glow */
+}
+
+
+
+input[type="submit"] {
+    background-color: #00ff41;
+    /* Neon green for buttons */
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    /* Smooth transition */
+    box-shadow: 0 0 5px #00ff41,
+        /* Inner glow */
+        0 0 10px #00ff41,
+        /* Middle glow */
+        0 0 15px #00ff41,
+        /* Outer glow */
+        0 0 20px #00ff41;
+    /* Far outer glow */
+}
+
+input[type="submit"]:hover {
+    background-color: #ff43a4;
+    /* Neon pink for button hover */
+    box-shadow: 0 0 5px #ff43a4,
+        /* Inner glow */
+        0 0 10px #ff43a4,
+        /* Middle glow */
+        0 0 15px #ff43a4,
+        /* Outer glow */
+        0 0 20px #ff43a4;
+    /* Far outer glow */
+}
+
+
+
+
+.form-label {
+    display: block;
+    margin-bottom: 10px;
+    /* Space between label and select/input */
+    color: #ff43a4;
+    font-weight: bold;
+    /* Neon pink for labels */
+}
+
+.form-select,
+.form-input {
+    width: 100%;
+    margin-bottom: 20px;
+    /* Space between select/input and the next element */
+}
+
+tr.selected,
+tr:hover.selected {
+    background-color: #ff43a4;
+    /* Neon pink for selected row */
+    box-shadow: 0 0 5px #ff43a4,
+        /* Inner glow */
+        0 0 10px #ff43a4,
+        /* Middle glow */
+        0 0 15px #ff43a4,
+        /* Outer glow */
+        0 0 20px #ff43a4;
+    /* Far outer glow */
+}
+
+
+
+input[type="number"] {
+    background-color: #1f1b33;
+    /* Darker background for input */
+    color: #00ff41;
+    /* Neon green for input text */
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #00ff41,
+        /* Inner glow */
+        0 0 10px #00ff41,
+        /* Middle glow */
+        0 0 15px #00ff41,
+        /* Outer glow */
+        0 0 20px #00ff41;
+    /* Far outer glow */
+}
+
+input[type="number"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px #ff43a4,
+        /* Inner glow */
+        0 0 10px #ff43a4,
+        /* Middle glow */
+        0 0 15px #ff43a4,
+        /* Outer glow */
+        0 0 20px #ff43a4;
+    /* Far outer glow */
+}
+
+label {
+    color: #ff43a4;
+    /* Neon pink for labels */
+}
+
+.form-label,
+.form-select,
+.form-input {
+    /* ...existing styles... */
+    width: 80%;
+    /* Adjust as needed */
+}
+
+
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    color: #fff;
+    border: none;
+    background-color: #ff43a4;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+    /* Smooth transition */
+    box-shadow: 0 0 5px #ff43a4,
+        /* Inner glow */
+        0 0 10px #ff43a4,
+        /* Middle glow */
+        0 0 15px #ff43a4,
+        /* Outer glow */
+        0 0 1px #ff43a4;
+    /* Far outer glow */
+}
+
+
+input.button {
+    display: inline-block;
+    padding: 15px 25px;
+    margin: 10px 0;
+    color: #fff;
+    background-color: #ff43a4;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: 0 0 5px #ff43a4,
+        /* Inner glow */
+        0 0 10px #ff43a4,
+        /* Middle glow */
+        0 0 15px #ff43a4,
+        /* Outer glow */
+        0 0 2px #ff43a4;
+    /* Far outer glow */
+}
+
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0px 0px 30px 2px #ff43a4;
+    /* Neon pink shadow for the table */
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #1f1b33;
+    /* Darker background for table headers */
+    color: #00ff41;
+    /* Neon green for table headers */
+}
+
+tr {
+    transition: all 0.3s ease-in-out;
+    /* Smooth transition */
+}
+
+tr:hover {
+    background-color: #27233a;
+    /* Slightly lighter background for hover */
+    box-shadow: 0 0 5px #00ff41,
+        /* Inner glow */
+        0 0 10px #00ff41,
+        /* Middle glow */
+        0 0 15px #00ff41,
+        /* Outer glow */
+        0 0 20px #00ff41;
+    /* Far outer glow */
+}
+
+
+p {
+    color: #f5f5f5;
+    /* Light text */
+    text-align: center;
+    margin-top: 3;
+}
