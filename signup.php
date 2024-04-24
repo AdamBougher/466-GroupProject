@@ -95,9 +95,9 @@ $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
 </head>
 
 <body>
-    <h2 class="bold-center">Sign Up to Sing</h2>
-    <div class="container">
-
+    
+    <div class="admin-body">
+        <h1 class="header">Sign Up to Sing</h1>
 
         <form action="signup_process.php" method="post" onsubmit="return validateForm()">
             <br>

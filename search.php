@@ -75,38 +75,42 @@ $results = $stmt->fetchAll();
 <!DOCTYPE html>
 <html>
 
+<link rel="stylesheet" type="text/css" href="styles.css">
+
 <head>
     <title>Search Results - Karaoke Event Application</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>Search Results</h1>
+    <div class="admin-body">
+        <h1 class="header">Search Results</h1>
         <?php if (empty($results)) : ?>
-            <p>No songs were found that match your search.</p>
+            <p class="form-label">No songs were found that match your search.</p>
         <?php else : ?>
-            <p>Here are the songs that match your search:</p>
-            <table>
-                <tr>
-                    <th>Song</th>
-                    <th>Artist</th>
-                    <th>Genre</th>
-                    <th>Version</th>
-                    <th>Contributors</th>
-                    <th>Roles</th>
-                </tr>
-                <?php foreach ($results as $result) : ?>
+            <p class="form-label">Here are the songs that match your search:</p>
+            <br>
+            <div class="table-container2">
+                <table>
                     <tr>
-                        <td><?php echo $result['SongName']; ?></td>
-                        <td><?php echo $result['ArtistName']; ?></td>
-                        <td><?php echo $result['GenreName']; ?></td>
-                        <td><?php echo $result['VersionName']; ?></td>
-                        <td><?php echo $result['Contributors']; ?></td>
-                        <td><?php echo $result['Roles']; ?></td>
+                        <th>Song</th>
+                        <th>Artist</th>
+                        <th>Genre</th>
+                        <th>Version</th>
+                        <th>Contributors</th>
+                        <th>Roles</th>
                     </tr>
-                <?php endforeach; ?>
-            </table>
+                    <?php foreach ($results as $result) : ?>
+                        <tr>
+                            <td><?php echo $result['SongName']; ?></td>
+                            <td><?php echo $result['ArtistName']; ?></td>
+                            <td><?php echo $result['GenreName']; ?></td>
+                            <td><?php echo $result['VersionName']; ?></td>
+                            <td><?php echo $result['Contributors']; ?></td>
+                            <td><?php echo $result['Roles']; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
 
 
         <?php endif; ?>
