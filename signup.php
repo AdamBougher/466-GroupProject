@@ -101,50 +101,47 @@ $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
 
         <form action="signup_process.php" method="post" onsubmit="return validateForm()">
             <br>
-            <label for="user" class="form-label">User:</label>
-            <select name="user" id="user" class="form-select" required="">
-                <option>Select a user...</option>
-                <?php foreach ($users as $user) : ?>
-                    <option value="<?php echo $user['UserID']; ?>"><?php echo $user['UserName']; ?></option>
+            <label for="userName" class="form-label">Enter a User Name:</label>
+            <br>
+            <input type="text" name="userName" id="userName" class="form-input" placeholder="Enter a user name..." required="">
+    
+        <br>
+        <br>
+        <input type="hidden" id="selectedSong" name="selectedSong">
+
+        <br>
+        <table id="songTable">
+            <tr>
+                <th>Song</th>
+                <th>Artist</th>
+                <th>Genre</th>
+                <th>Version</th>
+                <th>Contributor</th>
+                <th>Role</th>
+            </tr>
+            <?php if (!empty($songs)) : ?>
+                <?php foreach ($songs as $song) : ?>
+                    <tr onclick="selectSong('<?php echo $song['SongID']; ?>', '<?php echo $song['SongName']; ?>', this)">
+                        <td><?php echo $song['SongName']; ?></td>
+                        <td><?php echo $song['ArtistName']; ?></td>
+                        <td><?php echo $song['GenreName']; ?></td>
+                        <td><?php echo $song['VersionName']; ?></td>
+                        <td><?php echo $song['Contributors']; ?></td>
+                        <td><?php echo $song['Roles']; ?></td>
+                    </tr>
                 <?php endforeach; ?>
-            </select>
+            <?php endif; ?>
+        </table>
 
 
-
-            <input type="hidden" id="selectedSong" name="selectedSong">
-
-            <br>
-            <table id="songTable">
-                <tr>
-                    <th>Song</th>
-                    <th>Artist</th>
-                    <th>Genre</th>
-                    <th>Version</th>
-                    <th>Contributor</th>
-                    <th>Role</th>
-                </tr>
-                <?php if (!empty($songs)) : ?>
-                    <?php foreach ($songs as $song) : ?>
-                        <tr onclick="selectSong('<?php echo $song['SongID']; ?>', '<?php echo $song['SongName']; ?>', this)">
-                            <td><?php echo $song['SongName']; ?></td>
-                            <td><?php echo $song['ArtistName']; ?></td>
-                            <td><?php echo $song['GenreName']; ?></td>
-                            <td><?php echo $song['VersionName']; ?></td>
-                            <td><?php echo $song['Contributors']; ?></td>
-                            <td><?php echo $song['Roles']; ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </table>
+        <br>
+        <label for="price" class="form-label">Price:</label>
+        <br>
+        <input type="number" name="price" id="price" class="form-input" placeholder="Empty for normal queue">
 
 
-            <br>
-            <label for="price" class="form-label">Price:</label>
-            <input type="number" name="price" id="price" class="form-input" placeholder="Empty for normal queue">
-
-
-            <input type="submit" value="Submit" class="button">
-            <a href="user.php" class="back-button">Back</a>
+        <input type="submit" value="Submit" class="button">
+        <a href="user.php" class="back-button">Back</a>
         </form>
     </div>
 </body>

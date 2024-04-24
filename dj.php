@@ -60,6 +60,7 @@ WHERE q.Price IS NULL OR q.Price = 0
 GROUP BY q.QueueID
 ")->fetchAll();
 
+
 $priorityQueue = $pdo->query("
 SELECT q.QueueID, u.UserName, s.SongName, a.ArtistName, g.GenreName, v.VersionName , s.KaraokeFileID, 
 GROUP_CONCAT(DISTINCT c.ContributorName SEPARATOR ', ') AS Contributors,
