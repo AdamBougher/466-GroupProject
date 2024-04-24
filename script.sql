@@ -1,6 +1,6 @@
 CREATE TABLE User (
-    UserID INT PRIMARY KEY NOT NULL,
-    UserName VARCHAR(255) NOT NULL
+    UserID INT PRIMARY KEY AUTO_INCREMENT,
+    UserName VARCHAR(255) 
 );
 
 INSERT INTO User (UserID, UserName)
@@ -146,21 +146,14 @@ VALUES
 CREATE TABLE Queue (
     QueueID INT PRIMARY KEY AUTO_INCREMENT NOT NULL, 
     SongID INT NOT NULL, 
-    UserID INT NOT NULL,
+    UserID INT,
+    UserName VARCHAR(255) NOT NULL,
     Price DECIMAL(10, 2), -- NULL if queue type is 'free'
     FOREIGN KEY (SongID) REFERENCES Song(SongID),
     FOREIGN KEY (UserID) REFERENCES User(UserID)
 );
 
-INSERT INTO Queue (SongID, UserID, Price)
+INSERT INTO Queue (SongID, UserID, UserName, Price)
 VALUES 
-    (1, 1, 420.00),
-    (2, 2, NULL),
-    (3, 3, 100.00),
-    (4, 4, 200.00),
-    (5, 5, 300.00),
-    (6, 6, NULL),
-    (7, 7, 500.00),
-    (8, 8, 600.00),
-    (9, 9, NULL),
-    (10, 10, 800.00);
+    (1,1, "John", 1.99),
+    (2,2, "smith", NULL);
