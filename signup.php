@@ -133,13 +133,14 @@ $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
             <?php endif; ?>
         </table>
 
-
+        <br>
         <br>
         <label for="price" class="form-label">Price:</label>
         <br>
         <input type="number" name="price" id="price" class="form-input" placeholder="Empty for normal queue">
 
-
+        <br>
+        <br>
         <input type="submit" value="Submit" class="button">
         <a href="user.php" class="back-button">Back</a>
         </form>
