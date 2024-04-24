@@ -38,7 +38,7 @@ $songs = $pdo->query("SELECT * FROM Song")->fetchAll();
 <body>
     <div class="container">
         <h1>User Dashboard</h1>
-        <p>Welcome to the User Dashboard! Here, you can search for songs, sign up to sing, and view the queue of upcoming performances.</p>
+        <p>Welcome to the User Dashboard! Here, you can search for songs and sign up to sing.</p>
 
         <h2>Search for Songs</h2>
         <p>Enter the artist name, song title, or contributor in the search box below:</p>

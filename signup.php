@@ -46,17 +46,17 @@ $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script>
         function validateForm() {
-            var user = document.getElementById('user').value;
+            var userName = document.getElementById('userName').value;
             var song = document.getElementById('selectedSong').value;
 
             switch (true) {
-                case (user === 'Select a user...' && song === ''):
+                case (userName === 'Select a user...' && song === ''):
                     alert('Please select a user and a song');
                     return false;
                 case (song === ''):
                     alert('Please select a song');
                     return false;
-                case (user === 'Select a user...'):
+                case (userName === 'Select a user...'):
                     alert('Please select a user');
                     return false;
                 default:
