@@ -79,6 +79,44 @@ $results = $stmt->fetchAll();
 
 <head>
     <title>Search Results - Karaoke Event Application</title>
+    <script>
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("searchTable");
+            switching = true;
+            dir = "asc";
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount++;
+                } else {
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -90,14 +128,14 @@ $results = $stmt->fetchAll();
             <p class="form-label">Here are the songs that match your search:</p>
             <br>
             <div class="table-container2">
-                <table>
+                <table id="searchTable">
                     <tr>
-                        <th>Song</th>
-                        <th>Artist</th>
-                        <th>Genre</th>
-                        <th>Version</th>
-                        <th>Contributors</th>
-                        <th>Roles</th>
+                        <th onclick="sortTable(0)">Song</th>
+                        <th onclick="sortTable(1)">Artist</th>
+                        <th onclick="sortTable(2)">Genre</th>
+                        <th onclick="sortTable(3)">Version</th>
+                        <th onclick="sortTable(4)">Contributors</th>
+                        <th onclick="sortTable(5)">Roles</th>
                     </tr>
                     <?php foreach ($results as $result) : ?>
                         <tr>
@@ -110,13 +148,9 @@ $results = $stmt->fetchAll();
                         </tr>
                     <?php endforeach; ?>
                 </table>
+                <a href="ind.php" class="back-button">Back</a>
             </div>
-
-
         <?php endif; ?>
-    </div>
-    <div>
-        <a href="user.php" class="back-button">Back</a>
     </div>
 </body>
 

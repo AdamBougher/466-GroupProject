@@ -91,6 +91,9 @@ $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
             document.getElementById('selectedSong').value = songId;
             document.getElementById('song').value = songName;
         }
+
+
+        
     </script>
 </head>
 
