@@ -21,8 +21,11 @@ include 'db_connect.php';
 
 
 
-$songs = $pdo->query("SELECT * FROM Song")->fetchAll();
-
+$songs = $pdo->query("
+    SELECT * FROM KaraokeFiles
+    JOIN Song ON KaraokeFiles.SongID = Song.SongID
+    JOIN Contributor ON Song.ArtistName = Contributor.ArtistName
+    ")->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -61,20 +64,14 @@ $songs = $pdo->query("SELECT * FROM Song")->fetchAll();
                 <tr>
                     <th>Song</th>
                     <th>Artist</th>
-                    <th>Genre</th>
                     <th>Version</th>
-                    <th>Contributor</th>
-                    <th>Role</th>
                 </tr>
                 <?php if (!empty($songs)) : ?>
                     <?php foreach ($songs as $song) : ?>
-                        <tr onclick="selectSong('<?php echo $song['SongID']; ?>', '<?php echo $song['SongName']; ?>', this)">
-                            <td><?php echo $song['SongName']; ?></td>
+                        <tr onclick="selectSong('<?php echo $song['SongID']; ?>', '<?php echo $song['Title']; ?>', this)">
+                            <td><?php echo $song['Title']; ?></td>
                             <td><?php echo $song['ArtistName']; ?></td>
-                            <td><?php echo $song['GenreName']; ?></td>
-                            <td><?php echo $song['VersionName']; ?></td>
-                            <td><?php echo $song['Contributors']; ?></td>
-                            <td><?php echo $song['Roles']; ?></td>
+                            <td><?php echo $song['Version']; ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php endif; ?>
