@@ -46,17 +46,17 @@ $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script>
         function validateForm() {
-            var user = document.getElementById('user').value;
+            var userName = document.getElementById('userName').value;
             var song = document.getElementById('selectedSong').value;
 
             switch (true) {
-                case (user === 'Select a user...' && song === ''):
+                case (userName === 'Select a user...' && song === ''):
                     alert('Please select a user and a song');
                     return false;
                 case (song === ''):
                     alert('Please select a song');
                     return false;
-                case (user === 'Select a user...'):
+                case (userName === 'Select a user...'):
                     alert('Please select a user');
                     return false;
                 default:
@@ -91,13 +91,16 @@ $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
             document.getElementById('selectedSong').value = songId;
             document.getElementById('song').value = songName;
         }
+
+
+        
     </script>
 </head>
 
 <body>
-    <h2 class="bold-center">Sign Up to Sing</h2>
-    <div class="container">
-
+    
+    <div class="admin-body">
+        <h1 class="header">Sign Up to Sing</h1>
 
         <form action="signup_process.php" method="post" onsubmit="return validateForm()">
             <br>
@@ -133,13 +136,14 @@ $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
             <?php endif; ?>
         </table>
 
-
+        <br>
         <br>
         <label for="price" class="form-label">Price:</label>
         <br>
         <input type="number" name="price" id="price" class="form-input" placeholder="Empty for normal queue">
 
-
+        <br>
+        <br>
         <input type="submit" value="Submit" class="button">
         <a href="user.php" class="back-button">Back</a>
         </form>

@@ -75,44 +75,82 @@ $results = $stmt->fetchAll();
 <!DOCTYPE html>
 <html>
 
+<link rel="stylesheet" type="text/css" href="styles.css">
+
 <head>
     <title>Search Results - Karaoke Event Application</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script>
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("searchTable");
+            switching = true;
+            dir = "asc";
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount++;
+                } else {
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Search Results</h1>
+    <div class="admin-body">
+        <h1 class="header">Search Results</h1>
         <?php if (empty($results)) : ?>
-            <p>No songs were found that match your search.</p>
+            <p class="form-label">No songs were found that match your search.</p>
         <?php else : ?>
-            <p>Here are the songs that match your search:</p>
-            <table>
-                <tr>
-                    <th>Song</th>
-                    <th>Artist</th>
-                    <th>Genre</th>
-                    <th>Version</th>
-                    <th>Contributors</th>
-                    <th>Roles</th>
-                </tr>
-                <?php foreach ($results as $result) : ?>
+            <p class="form-label">Here are the songs that match your search:</p>
+            <br>
+            <div class="table-container2">
+                <table id="searchTable">
                     <tr>
-                        <td><?php echo $result['SongName']; ?></td>
-                        <td><?php echo $result['ArtistName']; ?></td>
-                        <td><?php echo $result['GenreName']; ?></td>
-                        <td><?php echo $result['VersionName']; ?></td>
-                        <td><?php echo $result['Contributors']; ?></td>
-                        <td><?php echo $result['Roles']; ?></td>
+                        <th onclick="sortTable(0)">Song</th>
+                        <th onclick="sortTable(1)">Artist</th>
+                        <th onclick="sortTable(2)">Genre</th>
+                        <th onclick="sortTable(3)">Version</th>
+                        <th onclick="sortTable(4)">Contributors</th>
+                        <th onclick="sortTable(5)">Roles</th>
                     </tr>
-                <?php endforeach; ?>
-            </table>
-
-
+                    <?php foreach ($results as $result) : ?>
+                        <tr>
+                            <td><?php echo $result['SongName']; ?></td>
+                            <td><?php echo $result['ArtistName']; ?></td>
+                            <td><?php echo $result['GenreName']; ?></td>
+                            <td><?php echo $result['VersionName']; ?></td>
+                            <td><?php echo $result['Contributors']; ?></td>
+                            <td><?php echo $result['Roles']; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+                <a href="ind.php" class="back-button">Back</a>
+            </div>
         <?php endif; ?>
-    </div>
-    <div>
-        <a href="user.php" class="back-button">Back</a>
     </div>
 </body>
 
