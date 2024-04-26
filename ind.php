@@ -56,7 +56,7 @@ $songs = $pdo->query("SELECT * FROM Song")->fetchAll();
 
 
 
-        <h2>PLayList</h2>
+        <h1>Playlist</h1>
         <table id="songTable">
                 <tr>
                     <th>Song</th>
