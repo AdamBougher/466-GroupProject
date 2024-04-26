@@ -7,20 +7,6 @@ error_reporting(E_ALL);
 $form_data = $_POST;
 include 'db_connect.php';
 
-
-/*$Queue = $pdo->query("
-    SELECT Queue.QueueID, User.UserName, Song.SongName, Artist.ArtistName, Song.KaraokeFileID
-    FROM Queue
-    JOIN User ON Queue.UserID = User.UserID
-    JOIN Song ON Queue.SongID = Song.SongID
-    JOIN Artist ON Song.ArtistID = Artist.ArtistID
-")->fetchAll();*/
-
-
-
-
-
-
 $songs = $pdo->query("
 SELECT * FROM KaraokeFiles
 JOIN Song ON KaraokeFiles.SongID = Song.SongID

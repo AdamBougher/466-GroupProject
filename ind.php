@@ -22,9 +22,7 @@ include 'db_connect.php';
 
 
 $songs = $pdo->query("
-    SELECT * FROM KaraokeFiles
-    JOIN Song ON KaraokeFiles.SongID = Song.SongID
-    JOIN Contributor ON Song.ArtistName = Contributor.ArtistName
+    SELECT * FROM Queue
     ")->fetchAll();
 ?>
 
