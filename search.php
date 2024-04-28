@@ -90,7 +90,7 @@ $results = $stmt->fetchAll();
                         </tr>
                     <?php endforeach; ?>
                 </table>
-                <a href="ind.php" class="back-button">Back</a>
+                <a href="user.php" class="back-button">Back</a>
             </div>
         <?php endif; ?>
     </div>
