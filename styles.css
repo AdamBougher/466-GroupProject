@@ -19,12 +19,26 @@ input[type="text"]:focus {
 }
 
 .button:hover {
+<<<<<<< HEAD
   cursor: pointer;
   background-color: #00ff41;
   /* Neon pink for button hover */
   box-shadow: 0 0 5px #00ff41, /* Inner glow */ 0 0 10px #00ff41,
     /* Middle glow */ 0 0 15px #00ff41, /* Outer glow */ 0 0 5px #00ff41;
   /* Far outer glow */
+=======
+    cursor: pointer;
+    background-color: #00ff41;
+    /* Neon pink for button hover */
+    box-shadow: 0 0 5px #00ff41,
+        /* Inner glow */
+        0 0 10px #00ff41,
+        /* Middle glow */
+        0 0 15px #00ff41,
+        /* Outer glow */
+        0 0 5px #00ff41;
+    /* Far outer glow */
+>>>>>>> 735c943 (Styles & unified js file)
 }
 
 .loader {
@@ -58,6 +72,7 @@ body {
 }
 
 /* centered body */
+<<<<<<< HEAD
 .admin-body {
   display: flex;
   flex-direction: column;
@@ -67,6 +82,18 @@ body {
   margin: 0;
   background-color: #0d0c22;
   /* Dark background */
+=======
+.admin-body
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #0d0c22;
+    /* Dark background */
+>>>>>>> 735c943 (Styles & unified js file)
 }
 
 .header {
@@ -164,6 +191,7 @@ select:focus {
 }
 
 .search-button {
+<<<<<<< HEAD
   cursor: pointer;
   display: inline-block;
   padding: 15px 25px;
@@ -177,6 +205,26 @@ select:focus {
   font-size: 18px;
   box-shadow: 0 0 5px #ff43a4, /* Inner glow */ 0 0 10px #ff43a4,
     /* Middle glow */ 0 0 15px #ff43a4, /* Outer glow */ 0 0 2px #ff43a4;
+=======
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px 25px;
+    margin: 10px 0;
+    margin-left: 20px;
+    color: #fff;
+    background-color: #ff43a4;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: 0 0 5px #ff43a4,
+        /* Inner glow */
+        0 0 10px #ff43a4,
+        /* Middle glow */
+        0 0 15px #ff43a4,
+        /* Outer glow */
+        0 0 2px #ff43a4;
+>>>>>>> 735c943 (Styles & unified js file)
 }
 
 .search-button:hover {
@@ -247,6 +295,7 @@ label {
 }
 
 .button {
+<<<<<<< HEAD
   cursor: pointer;
   display: inline-block;
   padding: 10px 20px;
@@ -263,6 +312,29 @@ label {
   box-shadow: 0 0 5px #ff43a4, /* Inner glow */ 0 0 10px #ff43a4,
     /* Middle glow */ 0 0 15px #ff43a4, /* Outer glow */ 0 0 1px #ff43a4;
   /* Far outer glow */
+=======
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    color: #fff;
+    border: none;
+    background-color: #ff43a4;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+    /* Smooth transition */
+    box-shadow: 0 0 5px #ff43a4,
+        /* Inner glow */
+        0 0 10px #ff43a4,
+        /* Middle glow */
+        0 0 15px #ff43a4,
+        /* Outer glow */
+        0 0 1px #ff43a4;
+    /* Far outer glow */
+>>>>>>> 735c943 (Styles & unified js file)
 }
 
 input.button {
@@ -281,17 +353,32 @@ input.button {
 }
 
 table {
+<<<<<<< HEAD
   width: 100%;
   border-collapse: collapse;
   box-shadow: 0px 0px 30px 2px #ff43a4;
   /* Neon pink shadow for the table */
+=======
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0px 0px 30px 2px #ff43a4;
+    /* Neon pink shadow for the table */
+
+>>>>>>> 735c943 (Styles & unified js file)
 }
 
 th,
 td {
+<<<<<<< HEAD
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
+=======
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+
+>>>>>>> 735c943 (Styles & unified js file)
 }
 
 /* column headers */
@@ -309,11 +396,25 @@ tr {
 }
 
 tr:hover {
+<<<<<<< HEAD
   background-color: #27233a;
   /* Slightly lighter background for hover */
   box-shadow: 0 0 5px #00ff41, /* Inner glow */ 0 0 10px #00ff41,
     /* Middle glow */ 0 0 15px #00ff41, /* Outer glow */ 0 0 20px #00ff41;
   /* Far outer glow */
+=======
+    background-color: #27233a;
+    /* Slightly lighter background for hover */
+    box-shadow: 0 0 5px #00ff41,
+        /* Inner glow */
+        0 0 10px #00ff41,
+        /* Middle glow */
+        0 0 15px #00ff41,
+        /* Outer glow */
+        0 0 20px #00ff41;
+    /* Far outer glow */
+
+>>>>>>> 735c943 (Styles & unified js file)
 }
 
 p {
@@ -365,4 +466,14 @@ p {
   color: #ff43a4; /* Neon pink text on hover */
   box-shadow: 0 0 5px #ff43a4, /* Inner glow */ 0 0 10px #ff43a4,
     /* Middle glow */ 0 0 15px #ff43a4, /* Outer glow */ 0 0 20px #ff43a4; /* Far outer glow */
+}
+
+/* index mouse cursor */
+#searchTable th {
+    cursor: pointer;
+}
+
+/* index mouse cursor */
+#songTable td {
+    cursor: pointer;
 }

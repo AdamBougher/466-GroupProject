@@ -52,7 +52,11 @@ $results = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
+=======
+<html>
+>>>>>>> 735c943 (Styles & unified js file)
 
 <head>
     <title>Search Results - Karaoke Event Application</title>
@@ -67,7 +71,11 @@ $results = $stmt->fetchAll();
             <p class="form-label">No songs were found that match your search.</p>
         <?php else : ?>
             <p class="form-label">Here are the songs that match your search:</p>
+<<<<<<< HEAD
             <p class="form-label">Click on the column headers to sort the table.</p>
+=======
+            <p class = "form-label">Click on the column headers to sort the table.</p>
+>>>>>>> 735c943 (Styles & unified js file)
             <br>
             <div class="table-container2">
                 <table id="searchTable">
