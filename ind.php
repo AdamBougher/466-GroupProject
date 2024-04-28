@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="admin-body">
         <h1 style="font-size: 2em;">Welcome to Karaoke Event Application</h1> 
         <p style="font-size: 1.5em;">Please select your role:</p>
         <a href="user.php" class="button">User</a>

@@ -5,11 +5,9 @@ include 'db_connect.php';
 <!DOCTYPE html>
 <html>
 
-<link rel="stylesheet" type="text/css" href="styles.css">
-
 <head>
     <title>Admin</title>
-    
+    <link rel="stylesheet" type="text/css" href="styles.css">    
 </head>
 
 <body class="admin-body">

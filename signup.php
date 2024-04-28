@@ -44,57 +44,7 @@ $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
 <head>
     <title>Sign Up to Sing - Karaoke Event Application</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script>
-        function validateForm() {
-            var userName = document.getElementById('userName').value;
-            var song = document.getElementById('selectedSong').value;
-
-            switch (true) {
-                case (userName === 'Select a user...' && song === ''):
-                    alert('Please select a user and a song');
-                    return false;
-                case (song === ''):
-                    alert('Please select a song');
-                    return false;
-                case (userName === 'Select a user...'):
-                    alert('Please select a user');
-                    return false;
-                default:
-                    return true;
-            }
-        }
-
-
-        /*function selectSong(songId, songName, clickedRow) {
-            var table = document.getElementById('songTable');
-            for (var i = 1, row; row = table.rows[i]; i++) {
-                row.classList.remove('selected');
-            }
-            clickedRow.classList.add('selected');
-            document.getElementById('selectedSong').value = songId;
-            document.getElementById('song').value = songName;
-        }*/
-
-        function selectSong(songId, songName, clickedRow) {
-            var table = document.getElementById('songTable');
-            for (var i = 1, row; row = table.rows[i]; i++) {
-                // If the row is already selected, unselect it
-                if (row === clickedRow && row.classList.contains('selected')) {
-                    row.classList.remove('selected');
-                    document.getElementById('selectedSong').value = '';
-                    document.getElementById('song').value = '';
-                    return;
-                }
-                row.classList.remove('selected');
-            }
-            clickedRow.classList.add('selected');
-            document.getElementById('selectedSong').value = songId;
-            document.getElementById('song').value = songName;
-        }
-
-
-        
-    </script>
+    <script src="main.js"></script>
 </head>
 
 <body>

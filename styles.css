@@ -31,6 +31,7 @@ input[type="text"]:focus {
 
 
 .button:hover {
+    cursor: pointer;
     background-color: #00ff41;
     /* Neon pink for button hover */
     box-shadow: 0 0 5px #00ff41,
@@ -75,6 +76,7 @@ body {
     /* Light text */
 }
 
+/* centered body */
 .admin-body
 {
     display: flex;
@@ -214,6 +216,7 @@ select:focus {
 }
 
 .search-button {
+    cursor: pointer;
     display: inline-block;
     padding: 15px 25px;
     margin: 10px 0;
@@ -328,7 +331,7 @@ label {
 
 
 .button {
-    
+    cursor: pointer;
     display: inline-block;
     padding: 10px 20px;
     margin: 10px;
@@ -380,6 +383,7 @@ table {
     border-collapse: collapse;
     box-shadow: 0px 0px 30px 2px #ff43a4;
     /* Neon pink shadow for the table */
+
 }
 
 th,
@@ -387,8 +391,10 @@ td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
+
 }
 
+/* column headers */
 th {
     background-color: #1f1b33;
     /* Darker background for table headers */
@@ -396,6 +402,7 @@ th {
     /* Neon green for table headers */
 }
 
+/* table rows */
 tr {
     transition: all 0.3s ease-in-out;
     /* Smooth transition */
@@ -412,6 +419,7 @@ tr:hover {
         /* Outer glow */
         0 0 20px #00ff41;
     /* Far outer glow */
+
 }
 
 
@@ -420,4 +428,14 @@ p {
     /* Light text */
     text-align: center;
     margin-top: 3;
+}
+
+/* index mouse cursor */
+#searchTable th {
+    cursor: pointer;
+}
+
+/* index mouse cursor */
+#songTable td {
+    cursor: pointer;
 }

@@ -8,41 +8,6 @@ error_reporting(E_ALL);
 // $priorityQueue = $pdo->query("SELECT q.QueueID, u.UserName, s.SongName, q.Price FROM Queue q JOIN User u ON q.UserID = u.UserID JOIN Song s ON q.SongID = s.SongID WHERE q.Price IS NOT NULL AND q.Price <> 0")->fetchAll();
 
 
-
-
-
-/*$normalQueue = $pdo->query("SELECT q.QueueID, u.UserName, s.SongName, a.ArtistName, g.GenreName, v.VersionName, 
-GROUP_CONCAT(DISTINCT c.ContributorName SEPARATOR ', ') AS Contributors,
-GROUP_CONCAT(DISTINCT r.RoleName SEPARATOR ', ') AS Roles, q.Price 
-FROM Queue q 
-JOIN User u ON q.UserID = u.UserID 
-JOIN Song s ON q.SongID = s.SongID 
-JOIN Artist a ON s.ArtistID = a.ArtistID
-JOIN Genre g ON s.GenreID = g.GenreID
-JOIN VersionOfSong v ON s.SongID = v.SongID
-JOIN SongContributor sc ON s.SongID = sc.SongID
-JOIN Contributor c ON sc.ContributorID = c.ContributorID
-JOIN Role r ON c.RoleID = r.RoleID
-WHERE q.Price IS NULL OR q.Price = 0
-GROUP BY q.QueueID
-")->fetchAll();
-
-$priorityQueue = $pdo->query("SELECT q.QueueID, u.UserName, s.SongName, a.ArtistName, g.GenreName, v.VersionName, 
-GROUP_CONCAT(DISTINCT c.ContributorName SEPARATOR ', ') AS Contributors,
-GROUP_CONCAT(DISTINCT r.RoleName SEPARATOR ', ') AS Roles, q.Price 
-FROM Queue q 
-JOIN User u ON q.UserID = u.UserID 
-JOIN Song s ON q.SongID = s.SongID 
-JOIN Artist a ON s.ArtistID = a.ArtistID
-JOIN Genre g ON s.GenreID = g.GenreID
-JOIN VersionOfSong v ON s.SongID = v.SongID
-JOIN SongContributor sc ON s.SongID = sc.SongID
-JOIN Contributor c ON sc.ContributorID = c.ContributorID
-JOIN Role r ON c.RoleID = r.RoleID
-WHERE q.Price IS NOT NULL AND q.Price <> 0
-GROUP BY q.QueueID
-")->fetchAll();*/
-
 $normalQueue = $pdo->query("
 SELECT q.QueueID, u.UserName, s.SongName, a.ArtistName, g.GenreName, v.VersionName, s.KaraokeFileID,
 GROUP_CONCAT(DISTINCT c.ContributorName SEPARATOR ', ') AS Contributors,
@@ -88,18 +53,6 @@ GROUP BY q.QueueID
 
 <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
-
-        <script>
-        function sortTable()
-        {
-            var table, rows, switching, i, x, y, shouldSwitch;
-            table = document.getElementsByTagName("table")[0];
-
-            
-        }
-       
-        </script>
-
     <title>DJ Page</title>
 </head>
 
@@ -116,7 +69,7 @@ GROUP BY q.QueueID
             <th>Contributors</th>
             <th>Roles</th>
             <th>User Name</th>
-            <th>Price</th>          
+            <th>Price</th>
         </tr>
         <?php foreach ($normalQueue as $queueItem) : ?>
             <tr>
