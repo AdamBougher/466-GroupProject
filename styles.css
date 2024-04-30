@@ -335,11 +335,10 @@ p {
 
 /* index mouse cursor */
 
-#priorityQueueTable tr:not(:first-child) td,
-#normalQueueTable tr:not(:first-child) td {
+#priorityQueueTable td,
+#normalQueueTable td {
   cursor: pointer;
 }
-
 
 .dj-body {
   align-items: center;
@@ -351,9 +350,19 @@ p {
   background-color: #0d0c22;
 }
 
-
 .main-header {
   /*color cyan*/
   color: #00f7ff;
   font-size: 40px;
+}
+
+.clickable-header {
+  cursor: pointer;
+  color: #00f7ff;
+}
+
+.clickable-header:hover {
+  color: #ff43a4; /* Neon pink text on hover */
+  box-shadow: 0 0 5px #ff43a4, /* Inner glow */ 0 0 10px #ff43a4,
+    /* Middle glow */ 0 0 15px #ff43a4, /* Outer glow */ 0 0 20px #ff43a4; /* Far outer glow */
 }

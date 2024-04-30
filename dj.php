@@ -67,7 +67,6 @@ GROUP BY q.QueueID
     <title>DJ Page</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="main.js"></script>
-    <link rel="icon" href="icon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -79,7 +78,7 @@ GROUP BY q.QueueID
         <br>
         <table id="normalQueueTable">
             <tr>
-                <th>Queue ID</th>
+                <th class="clickable-header" onclick="sortTable(0, 'normalQueueTable')">Queue ID</th>
                 <th>Song Name</th>
                 <th>Artist</th>
                 <th>Genre</th>
@@ -113,7 +112,7 @@ GROUP BY q.QueueID
         <br>
         <table id="priorityQueueTable">
             <tr>
-                <th>Queue ID</th>
+                <th class="clickable-header" onclick="sortTable(0, 'priorityQueueTable')">Queue ID</th>
                 <th>Song Name</th>
                 <th>Artist</th>
                 <th>Genre</th>
@@ -122,7 +121,7 @@ GROUP BY q.QueueID
                 <th>Contributors</th>
                 <th>Roles</th>
                 <th>User Name</th>
-                <th>Price</th>
+                <th class="clickable-header" onclick="sortTable(9, 'priorityQueueTable')">Price</th>
             </tr>
             <?php foreach ($priorityQueue as $queueItem) : ?>
                 <tr onclick="selectQueue(this, 'priorityQueueTable')">

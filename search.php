@@ -58,7 +58,6 @@ $results = $stmt->fetchAll();
     <title>Search Results - Karaoke Event Application</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="main.js"></script>
-    <link rel="icon" href="icon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -68,17 +67,17 @@ $results = $stmt->fetchAll();
             <p class="form-label">No songs were found that match your search.</p>
         <?php else : ?>
             <p class="form-label">Here are the songs that match your search:</p>
-            <p class = "form-label">Click on the column headers to sort the table.</p>
+            <p class="form-label">Click on the column headers to sort the table.</p>
             <br>
             <div class="table-container2">
                 <table id="searchTable">
                     <tr>
-                        <th onclick="sortTable(0)">Song</th>
-                        <th onclick="sortTable(1)">Artist</th>
-                        <th onclick="sortTable(2)">Genre</th>
-                        <th onclick="sortTable(3)">Version</th>
-                        <th onclick="sortTable(4)">Contributors</th>
-                        <th onclick="sortTable(5)">Roles</th>
+                        <th class="clickable-header" onclick="sortTable(0, 'searchTable')">Song</th>
+                        <th class="clickable-header" onclick="sortTable(1, 'searchTable')">Artist</th>
+                        <th class="clickable-header" onclick="sortTable(2, 'searchTable')">Genre</th>
+                        <th class="clickable-header" onclick="sortTable(3, 'searchTable')">Version</th>
+                        <th class="clickable-header" onclick="sortTable(4, 'searchTable')">Contributors</th>
+                        <th class="clickable-header" onclick="sortTable(5, 'searchTable')">Roles</th>
                     </tr>
                     <?php foreach ($results as $result) : ?>
                         <tr>
@@ -91,7 +90,7 @@ $results = $stmt->fetchAll();
                         </tr>
                     <?php endforeach; ?>
                 </table>
-                
+
             </div>
         <?php endif; ?>
     </div>

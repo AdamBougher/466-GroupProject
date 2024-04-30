@@ -42,7 +42,7 @@ function selectSong(songId, songName, clickedRow) {
 }
 
 // used in search
-function sortTable(n) {
+/*function sortTable(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("searchTable");
     switching = true;
@@ -77,10 +77,105 @@ function sortTable(n) {
             }
         }
     }
+}*/
+
+// good
+/*function sortTable(n, tableId) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById(tableId);
+    switching = true;
+    dir = "asc";
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            if (dir == "asc") {
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if (dir == "desc") {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount++;
+        } else {
+            if (switchcount == 0 && dir == "asc") {
+                dir = "desc";
+                switching = true;
+            }
+        }
+    }
+}*/
+
+
+function sortTable(n, tableId) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById(tableId);
+    switching = true;
+    dir = "asc";
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            if (dir == "asc") {
+                if (isNaN(x.innerHTML) || isNaN(y.innerHTML)) { // Compare as strings
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else { // Compare as numbers
+                    if (Number(x.innerHTML) > Number(y.innerHTML)) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            } else if (dir == "desc") {
+                if (isNaN(x.innerHTML) || isNaN(y.innerHTML)) { // Compare as strings
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else { // Compare as numbers
+                    if (Number(x.innerHTML) < Number(y.innerHTML)) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount++;
+        } else {
+            if (switchcount == 0 && dir == "asc") {
+                dir = "desc";
+                switching = true;
+            }
+        }
+    }
 }
 
+
+
+
+
+
 // dj 
-function selectQueue(clickedRow, tableId) {
+function selectQueue(clickedRow) {
     // Get both tables
     var normalQueueTable = document.getElementById('normalQueueTable');
     var priorityQueueTable = document.getElementById('priorityQueueTable');
@@ -104,28 +199,8 @@ function selectQueue(clickedRow, tableId) {
 }
 
 
+
 /*function addToPlaylist() {
-    // Get the selected row
-    var selectedRow = document.querySelector('.selected');
-
-    // If no row is selected, do nothing
-    if (!selectedRow) return;
-
-    // Add the selected song to the playlist
-    var songName = selectedRow.cells[1].textContent; // Song Name
-    var artistName = selectedRow.cells[2].textContent; // Artist
-
-    // Make an AJAX request to a PHP script to add the song to the session playlist
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'add_to_playlist.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.send('song=' + encodeURIComponent(songName) + '&artist=' + encodeURIComponent(artistName));
-
-    // Optional: refresh the page to show the updated playlist
-    location.reload();
-}*/
-
-function addToPlaylist() {
     // Get the selected row
     var selectedRow = document.querySelector('.selected');
 
@@ -149,60 +224,38 @@ function addToPlaylist() {
         // Refresh the page after the request is complete
         location.reload();
     });
+}*/
+
+
+function addToPlaylist() {
+    // Get the selected row
+    var selectedRow = document.querySelector('.selected');
+
+    // If no row is selected, do nothing
+    if (!selectedRow) return;
+
+    // Add the selected song to the playlist
+    var songName = selectedRow.cells[1].textContent; // Song Name
+    var artistName = selectedRow.cells[2].textContent; // Artist
+    var queueId = selectedRow.cells[0].textContent; // Queue ID
+
+    // Make a fetch request to the PHP script to add the song to the session playlist
+    var formData = new URLSearchParams();
+    formData.append('song', songName);
+    formData.append('artist', artistName);
+    formData.append('queueId', queueId); // Add Queue ID to the request
+
+    fetch('add_to_playlist.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(() => {
+        // Refresh the page after the request is complete
+        location.reload();
+    });
 }
 
 
-
-/*function nextSong() {
-    // Make an AJAX request to a PHP script to play the next song
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'next_song.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.send();
-
-    // Log the HTTP status code and response text
-    xhr.onload = function() {
-        console.log('HTTP status code:', xhr.status);
-        console.log('Response text:', xhr.responseText);
-
-        if (xhr.status === 200) {
-            location.reload();
-        }
-    }
-
-    // Add an error handler
-    xhr.onerror = function() {
-        console.log('An error occurred during the transaction');
-    };
-}*/
-
-
-
-// best
-/*function nextSong() {
-    // Make an AJAX request to a PHP script to play the next song
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'next_song.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.send();
-
-    // Refresh the page when the AJAX request is done
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            // If the response text is "No more songs in the playlist.", display an alert
-            if (xhr.responseText === "No more songs in the playlist.") {
-                alert(xhr.responseText);
-            }
-            // Reload the page
-            location.reload();
-        }
-    }
-
-    // Add an error handler
-    xhr.onerror = function() {
-        console.log('An error occurred during the transaction');
-    };
-}*/
 
 
 function nextSong() {
