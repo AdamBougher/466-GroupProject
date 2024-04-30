@@ -107,7 +107,7 @@ GROUP BY q.QueueID
     <h2>Normal Queue</h2>
     <table>
         <tr>
-            <th>Queue ID</th>
+            <th>Queue  ID</th>
             <th>Song Name</th>
             <th>Artist</th>
             <th>Genre</th>
