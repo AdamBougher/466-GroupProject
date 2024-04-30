@@ -38,66 +38,19 @@ GROUP BY Song.SongID, VersionOfSong.VersionName;
 $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 
 <head>
     <title>Sign Up to Sing - Karaoke Event Application</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script>
-        function validateForm() {
-            var user = document.getElementById('user').value;
-            var song = document.getElementById('selectedSong').value;
-
-            switch (true) {
-                case (user === 'Select a user...' && song === ''):
-                    alert('Please select a user and a song');
-                    return false;
-                case (song === ''):
-                    alert('Please select a song');
-                    return false;
-                case (user === 'Select a user...'):
-                    alert('Please select a user');
-                    return false;
-                default:
-                    return true;
-            }
-        }
-
-
-        /*function selectSong(songId, songName, clickedRow) {
-            var table = document.getElementById('songTable');
-            for (var i = 1, row; row = table.rows[i]; i++) {
-                row.classList.remove('selected');
-            }
-            clickedRow.classList.add('selected');
-            document.getElementById('selectedSong').value = songId;
-            document.getElementById('song').value = songName;
-        }*/
-
-        function selectSong(songId, songName, clickedRow) {
-            var table = document.getElementById('songTable');
-            for (var i = 1, row; row = table.rows[i]; i++) {
-                // If the row is already selected, unselect it
-                if (row === clickedRow && row.classList.contains('selected')) {
-                    row.classList.remove('selected');
-                    document.getElementById('selectedSong').value = '';
-                    document.getElementById('song').value = '';
-                    return;
-                }
-                row.classList.remove('selected');
-            }
-            clickedRow.classList.add('selected');
-            document.getElementById('selectedSong').value = songId;
-            document.getElementById('song').value = songName;
-        }
-    </script>
+    <script src="main.js"></script>
 </head>
 
 <body>
-    <h2 class="bold-center">Sign Up to Sing</h2>
-    <div class="container">
-
+    
+    <div class="admin-body">
+        <h1 class="header">Sign Up to Sing</h1>
 
         <form action="signup_process.php" method="post" onsubmit="return validateForm()">
             <br>
@@ -133,13 +86,14 @@ $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
             <?php endif; ?>
         </table>
 
-
+        <br>
         <br>
         <label for="price" class="form-label">Price:</label>
         <br>
         <input type="number" name="price" id="price" class="form-input" placeholder="Empty for normal queue">
 
-
+        <br>
+        <br>
         <input type="submit" value="Submit" class="button">
         <a href="user.php" class="back-button">Back</a>
         </form>

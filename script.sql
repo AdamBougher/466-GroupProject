@@ -155,5 +155,14 @@ CREATE TABLE Queue (
 
 INSERT INTO Queue (SongID, UserID, UserName, Price)
 VALUES 
-    (1,1, "John", 1.99),
-    (2,2, "smith", NULL);
+    (1,1, "", 1.99),
+    (2,2, "", NULL),
+    (3,3, "", 120),
+    (4,4, "", 9000),
+    (5,5, "", 0),
+    (6,6, "", NULL),
+    (7,7, "", 0),
+    (8,8, "", 0),
+    (9,9, "", NULL),
+    (10,10, "", 250),
+    (11,1, "", 0.01);
