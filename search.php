@@ -52,7 +52,7 @@ $results = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>Search Results - Karaoke Event Application</title>

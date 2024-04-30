@@ -38,7 +38,7 @@ GROUP BY Song.SongID, VersionOfSong.VersionName;
 $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 
 <head>

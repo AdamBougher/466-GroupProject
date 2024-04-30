@@ -8,6 +8,7 @@ error_reporting(E_ALL);
 // $priorityQueue = $pdo->query("SELECT q.QueueID, u.UserName, s.SongName, q.Price FROM Queue q JOIN User u ON q.UserID = u.UserID JOIN Song s ON q.SongID = s.SongID WHERE q.Price IS NOT NULL AND q.Price <> 0")->fetchAll();
 
 
+
 session_start();
 
 if (!isset($_SESSION['playlist'])) {
@@ -60,7 +61,7 @@ GROUP BY q.QueueID
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>DJ Page</title>
@@ -139,7 +140,7 @@ GROUP BY q.QueueID
         </table>
         <br>
         <br>
-        <button class="button" onclick="addToPlaylist()">Add to Playlist</button>
+        <button onclick="addToPlaylist()" class="button" type="button">Add to Playlist</button>
 
         <!-- Playlist -->
         <h2>Playlist</h2>
@@ -172,11 +173,8 @@ GROUP BY q.QueueID
 
         <br>
 
-        <button onclick="nextSong()" class="button">Next Song</button>
-
+        <button onclick="nextSong()" class="button" type="button">Next Song</button>
         <a href="admin.php" class="button">Admin</a>
-        
-
 
         <a href="ind.php" class="back-button">Back</a>
     </div>
