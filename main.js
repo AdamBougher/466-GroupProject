@@ -18,6 +18,11 @@ function validateForm() {
     }
 }
 
+function showLoader() {
+    document.getElementById('loader').style.display = 'block';
+}
+
+
 // used in signup
 function selectSong(songId, songName, clickedRow) {
     var table = document.getElementById('songTable');
@@ -73,3 +78,140 @@ function sortTable(n) {
         }
     }
 }
+
+// dj 
+function selectQueue(clickedRow, tableId) {
+    // Get both tables
+    var normalQueueTable = document.getElementById('normalQueueTable');
+    var priorityQueueTable = document.getElementById('priorityQueueTable');
+
+    // Combine all rows from both tables into one array
+    var allRows = Array.from(normalQueueTable.rows).concat(Array.from(priorityQueueTable.rows));
+
+    // If the clicked row is already selected, unselect it
+    if (clickedRow.classList.contains('selected')) {
+        clickedRow.classList.remove('selected');
+        return;
+    }
+
+    // Remove 'selected' class from all rows
+    for (var i = 0; i < allRows.length; i++) {
+        allRows[i].classList.remove('selected');
+    }
+
+    // Add 'selected' class to the clicked row
+    clickedRow.classList.add('selected');
+}
+
+
+/*function addToPlaylist() {
+    // Get the selected row
+    var selectedRow = document.querySelector('.selected');
+
+    // If no row is selected, do nothing
+    if (!selectedRow) return;
+
+    // Add the selected song to the playlist
+    var songName = selectedRow.cells[1].textContent; // Song Name
+    var artistName = selectedRow.cells[2].textContent; // Artist
+
+    // Make an AJAX request to a PHP script to add the song to the session playlist
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'add_to_playlist.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send('song=' + encodeURIComponent(songName) + '&artist=' + encodeURIComponent(artistName));
+
+    // Optional: refresh the page to show the updated playlist
+    location.reload();
+}*/
+
+function addToPlaylist() {
+    // Get the selected row
+    var selectedRow = document.querySelector('.selected');
+
+    // If no row is selected, do nothing
+    if (!selectedRow) return;
+
+    // Add the selected song to the playlist
+    var songName = selectedRow.cells[1].textContent; // Song Name
+    var artistName = selectedRow.cells[2].textContent; // Artist
+
+    // Make a fetch request to the PHP script to add the song to the session playlist
+    var formData = new URLSearchParams();
+    formData.append('song', songName);
+    formData.append('artist', artistName);
+
+    fetch('add_to_playlist.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(() => {
+        // Refresh the page after the request is complete
+        location.reload();
+    });
+}
+
+
+
+/*function nextSong() {
+    // Make an AJAX request to a PHP script to play the next song
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'next_song.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send();
+
+    // Log the HTTP status code and response text
+    xhr.onload = function() {
+        console.log('HTTP status code:', xhr.status);
+        console.log('Response text:', xhr.responseText);
+
+        if (xhr.status === 200) {
+            location.reload();
+        }
+    }
+
+    // Add an error handler
+    xhr.onerror = function() {
+        console.log('An error occurred during the transaction');
+    };
+}*/
+
+
+
+// best
+/*function nextSong() {
+    // Make an AJAX request to a PHP script to play the next song
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'next_song.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send();
+
+    // Refresh the page when the AJAX request is done
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // If the response text is "No more songs in the playlist.", display an alert
+            if (xhr.responseText === "No more songs in the playlist.") {
+                alert(xhr.responseText);
+            }
+            // Reload the page
+            location.reload();
+        }
+    }
+
+    // Add an error handler
+    xhr.onerror = function() {
+        console.log('An error occurred during the transaction');
+    };
+}*/
+
+
+function nextSong() {
+    // Send a request to next_song.php
+    fetch('next_song.php', { method: 'POST' })
+        .then(() => {
+            // Refresh the page after the request is complete
+            location.reload();
+        });
+}
+
+
