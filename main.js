@@ -18,14 +18,10 @@ function validateForm() {
     }
 }
 
-<<<<<<< HEAD
 function showLoader() {
     document.getElementById('loader').style.display = 'block';
 }
 
-
-=======
->>>>>>> 735c943 (Styles & unified js file)
 // used in signup
 function selectSong(songId, songName, clickedRow) {
     var table = document.getElementById('songTable');
@@ -45,11 +41,8 @@ function selectSong(songId, songName, clickedRow) {
 }
 
 // used in search
-<<<<<<< HEAD
 /*function sortTable(n) {
-=======
 function sortTable(n) {
->>>>>>> 735c943 (Styles & unified js file)
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("searchTable");
     switching = true;
@@ -274,8 +267,3 @@ function nextSong() {
             location.reload();
         });
 }
-
-
-=======
-}
->>>>>>> 735c943 (Styles & unified js file)

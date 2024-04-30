@@ -20,10 +20,10 @@ CREATE TABLE KaraokeFiles(
 
 CREATE TABLE Queue(
     QueueID INT PRIMARY KEY NOT NULL,
-    SongID INT NOT NULL,
+    FileID INT NOT NULL,
     Username VARCHAR(255) NOT NULL,
     Price DECIMAL(4,2),
-    FOREIGN KEY (SongID) REFERENCES Song(SongID)
+    FOREIGN KEY (FileID) REFERENCES KaraokeFiles(FileID)
 );
 
 CREATE TABLE PriorityQueue(

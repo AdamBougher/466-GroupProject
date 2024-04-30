@@ -44,38 +44,6 @@ $songs = $pdo->query("
         <a href="dj.php" class="button">DJ</a>
         <a href="admin.php" class="button">Admin</a>
         
-        <h1>UpNext</h1>
-            <table id="songTable">
-                <tr>
-                    <th>Name</th>
-                    <th>Song</th>
-                    <th>Artist</th>
-                    <th>Version</th>
-                </tr>
-
-                
-            </table>
-
-
-
-        <h1>Playlist</h1>
-        <table id="songTable">
-                <tr>
-                    <th>Song</th>
-                    <th>Artist</th>
-                    <th>Version</th>
-                </tr>
-                <?php if (!empty($songs)) : ?>
-                    <?php foreach ($songs as $song) : ?>
-                        <tr onclick="selectSong('<?php echo $song['SongID']; ?>', '<?php echo $song['Title']; ?>', this)">
-                            <td><?php echo $song['Title']; ?></td>
-                            <td><?php echo $song['ArtistName']; ?></td>
-                            <td><?php echo $song['Version']; ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-        </table>
-
     </div>
 </body>
 

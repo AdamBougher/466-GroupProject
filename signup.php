@@ -15,6 +15,7 @@ JOIN KaraokeFiles kf ON s.SongID = kf.SongID
 
 $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,17 +49,15 @@ $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
                     <th>Song</th>
                     <th>Artist</th>
                     <th>Genre</th>
-                    <th>Version</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php if (!empty($songs)) : ?>
                     <?php foreach ($songs as $song) : ?>
                         <tr onclick="selectSong('<?php echo $song['SongID']; ?>', '<?php echo $song['SongName']; ?>', this)">
-                            <td><?php echo $song['SongName']; ?></td>
+                            <td><?php echo $song['SongName'] . " - " . $song['VersionName']; ?></td>
                             <td><?php echo $song['ArtistName']; ?></td>
                             <td><?php echo $song['Genre']; ?></td>
-                            <td><?php echo $song['VersionName']; ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php endif; ?>

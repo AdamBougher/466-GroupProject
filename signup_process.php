@@ -11,18 +11,20 @@ $userName = $_POST['userName'];
 $fileId = $_POST['selectedSong'];
 $price = isset($_POST['price']) && !empty($_POST['price']) ? $_POST['price'] : NULL;
 
-// SQL query to insert a new record into the Queue table
-$query = "INSERT INTO Queue (FileID, UserName, Price) VALUES (:fileId, :userName, :price)";
+if($price == null || $price <= 0){
+    $table = 'Queue';
+} else{
+    $table = 'PriorityQueue';
+}
 
-// Prepare the SQL statement
-$stmt = $pdo->prepare($query);
+$stmt = $pdo->prepare("INSERT INTO $table (FileID, UserName, Price) VALUES (:fileId, :userName, :price)");
 
-// Bind the form data to the SQL statement
+// Bind the values
 $stmt->bindValue(':fileId', $fileId);
 $stmt->bindValue(':userName', $userName);
 $stmt->bindValue(':price', $price);
 
-// Execute the SQL statement
+// Execute
 $stmt->execute();
 
 // Redirect to the user dashboard

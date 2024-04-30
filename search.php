@@ -5,17 +5,6 @@ include 'db_connect.php';
 // Get the search term from the form
 $searchTerm = $_POST['search'];
 
-// SQL query to search for songs
-// $query = "SELECT SongName, ArtistName FROM Song JOIN Artist ON Song.ArtistID = Artist.ArtistID WHERE SongName LIKE :searchTerm OR ArtistName LIKE :searchTerm";
-/*$query = "SELECT Song.SongName, Artist.ArtistName, Contributor.ContributorName 
-          FROM Song 
-          JOIN Artist ON Song.ArtistID = Artist.ArtistID 
-          JOIN SongContributor ON Song.SongID = SongContributor.SongID 
-          JOIN Contributor ON SongContributor.ContributorID = Contributor.ContributorID 
-          WHERE Song.SongName LIKE :searchTerm 
-          OR Artist.ArtistName LIKE :searchTerm 
-          OR Contributor.ContributorName LIKE :searchTerm";
-*/
 
 $query = "
 SELECT Song.SongName, Artist.ArtistName, Genre.GenreName, VersionOfSong.VersionName, 
@@ -52,11 +41,7 @@ $results = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="en">
-=======
-<html>
->>>>>>> 735c943 (Styles & unified js file)
 
 <head>
     <title>Search Results - Karaoke Event Application</title>
@@ -71,11 +56,7 @@ $results = $stmt->fetchAll();
             <p class="form-label">No songs were found that match your search.</p>
         <?php else : ?>
             <p class="form-label">Here are the songs that match your search:</p>
-<<<<<<< HEAD
             <p class="form-label">Click on the column headers to sort the table.</p>
-=======
-            <p class = "form-label">Click on the column headers to sort the table.</p>
->>>>>>> 735c943 (Styles & unified js file)
             <br>
             <div class="table-container2">
                 <table id="searchTable">

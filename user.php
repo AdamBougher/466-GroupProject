@@ -7,7 +7,14 @@ error_reporting(E_ALL);
 include 'db_connect.php';
 
 $songs = $pdo->query("
-SELECT * FROM Song
+SELECT * FROM (
+SELECT * FROM Queue 
+UNION 
+SELECT * FROM PriorityQueue
+) q
+JOIN KaraokeFiles k ON q.FileID = k.FileID
+JOIN Song s ON k.SongID = s.SongID
+ORDER BY q.QueueID ASC
 ")->fetchAll();
 
 ?>
@@ -33,20 +40,20 @@ SELECT * FROM Song
             <input type="submit" value="Search" class="search-button">
         </form>
 
-        <h1>Playlist</h1>
+        <h1>Current Queue</h1>
         <div style="overflow-x: auto;">
             <table id="Song List">
                     <tr>
-                        <th>Genre</th>
+                        <th>Singer</th>
                         <th>Song</th>
-                        <th>Artist</th>
+                        <th>Length</th>
                     </tr>
                     <?php if (!empty($songs)) : ?>
                         <?php foreach ($songs as $song) : ?>
                             <tr onclick="selectSong('<?php echo $song['SongID']; ?>', '<?php echo $song['Title']; ?>', this)">
-                                <td><?php echo $song['Genre']?></td>
-                                <td><?php echo $song['Title']?></td>
-                                <td><?php echo $song['ArtistName']; ?></td>
+                                <td><?php echo $song['Username']?></td>
+                                <td><?php echo $song['Title'] . " By " . $song['ArtistName'] . " - " . $song['Version'];;?></td>
+                                <td><?php echo $song['SongLength'];?></td>
                             </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
