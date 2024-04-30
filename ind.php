@@ -22,7 +22,7 @@ include 'db_connect.php';
 
 
 $songs = $pdo->query("
-    SELECT * FROM Queue
+    SELECT * FROM Song
     ")->fetchAll();
 ?>
 
@@ -37,15 +37,9 @@ $songs = $pdo->query("
 
 <body>
     <div class="admin-body">
-<<<<<<< HEAD
-        <h1 class="main-header">Welcome to Karaoke Event Application</h1> 
-        <p class="form-label">Please select your role:</p>
-        <br>
-=======
         <h1 style="font-size: 2em;">Welcome to Karaoke Event Application</h1> 
         <p style="font-size: 1.5em;">Please select your role:</p>
 
->>>>>>> 735c943 (Styles & unified js file)
         <a href="user.php" class="button">User</a>
         <a href="dj.php" class="button">DJ</a>
         <a href="admin.php" class="button">Admin</a>

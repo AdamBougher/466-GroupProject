@@ -7,9 +7,6 @@ error_reporting(E_ALL);
 // $normalQueue = $pdo->query("SELECT q.QueueID, u.UserName, s.SongName, q.Price FROM Queue q JOIN User u ON q.UserID = u.UserID JOIN Song s ON q.SongID = s.SongID WHERE q.Price IS NULL OR q.Price = 0")->fetchAll();
 // $priorityQueue = $pdo->query("SELECT q.QueueID, u.UserName, s.SongName, q.Price FROM Queue q JOIN User u ON q.UserID = u.UserID JOIN Song s ON q.SongID = s.SongID WHERE q.Price IS NOT NULL AND q.Price <> 0")->fetchAll();
 
-
-<<<<<<< HEAD
-
 session_start();
 
 if (!isset($_SESSION['playlist'])) {
@@ -21,21 +18,17 @@ if (!isset($_SESSION['current_song'])) {
 }
 
 
-=======
->>>>>>> 735c943 (Styles & unified js file)
+
 $normalQueue = $pdo->query("
-SELECT q.QueueID, u.UserName, s.SongName, a.ArtistName, g.GenreName, v.VersionName, s.KaraokeFileID,
+SELECT q.QueueID, q.Username, s.Title AS SongName, s.ArtistName, s.Genre AS GenreName, kf.Version AS VersionName, s.FileID AS KaraokeFileID,
 GROUP_CONCAT(DISTINCT c.ContributorName SEPARATOR ', ') AS Contributors,
 GROUP_CONCAT(DISTINCT r.RoleName SEPARATOR ', ') AS Roles, q.Price 
 FROM Queue q 
-JOIN User u ON q.UserID = u.UserID 
 JOIN Song s ON q.SongID = s.SongID 
-JOIN Artist a ON s.ArtistID = a.ArtistID
-JOIN Genre g ON s.GenreID = g.GenreID
-JOIN VersionOfSong v ON s.SongID = v.SongID
 LEFT JOIN SongContributor sc ON s.SongID = sc.SongID
 LEFT JOIN Contributor c ON sc.ContributorID = c.ContributorID
 LEFT JOIN Role r ON c.RoleID = r.RoleID
+JOIN KaraokeFiles kf ON s.FileID = kf.FileID
 WHERE q.Price IS NULL OR q.Price = 0
 GROUP BY q.QueueID
 ")->fetchAll();
@@ -67,17 +60,13 @@ GROUP BY q.QueueID
 <html lang="en">
 
 <head>
-<<<<<<< HEAD
-=======
     <link rel="stylesheet" type="text/css" href="styles.css">
->>>>>>> 735c943 (Styles & unified js file)
     <title>DJ Page</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="main.js"></script>
 </head>
 
 <body>
-<<<<<<< HEAD
     <div class="dj-body">
         <h1 class="header">DJ Dashboard</h1>
         <p class="form-label">Welcome to the DJ Dashboard! Here, you can view the queue and manage the songs.</p>
@@ -85,7 +74,6 @@ GROUP BY q.QueueID
         <br>
         <br>
         <table id="normalQueueTable">
-=======
     <h2>Normal Queue</h2>
     <table>
         <tr>
@@ -95,13 +83,10 @@ GROUP BY q.QueueID
             <th>Genre</th>
             <th>FileID</th>
             <th>Version</th>
-            <th>Contributors</th>
-            <th>Roles</th>
             <th>User Name</th>
             <th>Price</th>
         </tr>
         <?php foreach ($normalQueue as $queueItem) : ?>
->>>>>>> 735c943 (Styles & unified js file)
             <tr>
                 <th class="clickable-header" onclick="sortTable(0, 'normalQueueTable')">Queue ID</th>
                 <th>Song Name</th>
@@ -119,11 +104,8 @@ GROUP BY q.QueueID
                     <td><?php echo $queueItem['QueueID']; ?></td>
                     <td><?php echo $queueItem['SongName']; ?></td>
                     <td><?php echo $queueItem['ArtistName']; ?></td>
-                    <td><?php echo $queueItem['GenreName']; ?></td>
-                    <td><?php echo $queueItem['KaraokeFileID']; ?></td>
+                    <td><?php echo $queueItem['Genre']; ?></td>
                     <td><?php echo $queueItem['VersionName']; ?></td>
-                    <td><?php echo $queueItem['Contributors']; ?></td>
-                    <td><?php echo $queueItem['Roles']; ?></td>
                     <td><?php echo $queueItem['UserName']; ?></td>
                     <td><?php echo $queueItem['Price']; ?></td>
                 </tr>

@@ -7,9 +7,7 @@ error_reporting(E_ALL);
 include 'db_connect.php';
 
 $songs = $pdo->query("
-SELECT * FROM KaraokeFiles
-JOIN Song ON KaraokeFiles.SongID = Song.SongID
-JOIN Contributor ON Song.ArtistName = Contributor.ArtistName
+SELECT * FROM Song
 ")->fetchAll();
 
 ?>
@@ -36,20 +34,24 @@ JOIN Contributor ON Song.ArtistName = Contributor.ArtistName
         </form>
 
         <h1>Playlist</h1>
-        <table id="Song List">
-                <tr>
-                    <th>Song</th>
-                    <th>Artist</th>
-                </tr>
-                <?php if (!empty($songs)) : ?>
-                    <?php foreach ($songs as $song) : ?>
-                        <tr onclick="selectSong('<?php echo $song['SongID']; ?>', '<?php echo $song['Title']; ?>', this)">
-                            <td><?php echo $song['Title'] . ' - ' . $song['Version']; ?></td>
-                            <td><?php echo $song['ArtistName']; ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-        </table>
+        <div style="overflow-x: auto;">
+            <table id="Song List">
+                    <tr>
+                        <th>Genre</th>
+                        <th>Song</th>
+                        <th>Artist</th>
+                    </tr>
+                    <?php if (!empty($songs)) : ?>
+                        <?php foreach ($songs as $song) : ?>
+                            <tr onclick="selectSong('<?php echo $song['SongID']; ?>', '<?php echo $song['Title']; ?>', this)">
+                                <td><?php echo $song['Genre']?></td>
+                                <td><?php echo $song['Title']?></td>
+                                <td><?php echo $song['ArtistName']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+            </table>
+        </div>
         <br>
         <h2>Sign Up to Sing</h2>
         <p class="form-label">Found a song you want to sing? Great! Select the song and choose your queue:</p>
