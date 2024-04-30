@@ -9,8 +9,9 @@
 
 <body>
     <div class="admin-body">
-        <h1 style="font-size: 2em;">Welcome to Karaoke Event Application</h1> 
-        <p style="font-size: 1.5em;">Please select your role:</p>
+        <h1 class="main-header">Welcome to Karaoke Event Application</h1> 
+        <p class="form-label">Please select your role:</p>
+        <br>
         <a href="user.php" class="button">User</a>
         <a href="dj.php" class="button">DJ</a>
         <a href="admin.php" class="button">Admin</a>

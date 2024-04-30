@@ -13,6 +13,7 @@ include 'db_connect.php';
 <head>
     <title>User Dashboard - Karaoke Event Application</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="icon.png" type="image/x-icon">
 </head>
 
 <body>

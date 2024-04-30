@@ -67,6 +67,7 @@ GROUP BY q.QueueID
     <title>DJ Page</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="main.js"></script>
+    <link rel="icon" href="icon.png" type="image/x-icon">
 </head>
 
 <body>
