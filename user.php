@@ -15,7 +15,7 @@ JOIN Contributor ON Song.ArtistName = Contributor.ArtistName
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>User Dashboard - Karaoke Event Application</title>

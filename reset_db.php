@@ -30,7 +30,9 @@ function resetDatabase($pdo)
     // Execute the SQL commands
     $pdo->exec($sql);
 
-    echo "Database reset successfully!";
+    echo '<div class="admin-body">';
+    echo '<h2 class="success-message">Database has been reset.</h2>';
+    echo '</div>';
 }
 
 // Call the function to reset the database
@@ -42,21 +44,7 @@ resetDatabase($pdo);
 
 <head>
     <title>Reset Database</title>
-    <style>
-        .back-button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
-            color: #fff;
-            background-color: #007BFF;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .back-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>

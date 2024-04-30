@@ -17,27 +17,6 @@ $searchTerm = $_POST['search'];
           OR Contributor.ContributorName LIKE :searchTerm";
 */
 
-// v2
-/*$query = "SELECT Song.SongName, Artist.ArtistName, Genre.GenreName, VersionOfSong.VersionName, 
-          GROUP_CONCAT(DISTINCT Contributor.ContributorName SEPARATOR ', ') AS Contributors,
-          GROUP_CONCAT(DISTINCT Role.RoleName SEPARATOR ', ') AS Roles
-          FROM Song
-          JOIN Artist ON Song.ArtistID = Artist.ArtistID
-          JOIN Genre ON Song.GenreID = Genre.GenreID
-          JOIN VersionOfSong ON Song.SongID = VersionOfSong.SongID
-          JOIN SongContributor ON Song.SongID = SongContributor.SongID
-          JOIN Contributor ON SongContributor.ContributorID = Contributor.ContributorID
-          JOIN Role ON Contributor.RoleID = Role.RoleID
-          WHERE Song.SongName LIKE :searchTerm 
-          OR Artist.ArtistName LIKE :searchTerm 
-          OR Contributor.ContributorName LIKE :searchTerm
-          OR Genre.GenreName LIKE :searchTerm
-          OR VersionOfSong.VersionName LIKE :searchTerm
-          OR Role.RoleName LIKE :searchTerm
-          GROUP BY Song.SongID, VersionOfSong.VersionName";
-
-*/
-
 $query = "
 SELECT Song.SongName, Artist.ArtistName, Genre.GenreName, VersionOfSong.VersionName, 
 GROUP_CONCAT(DISTINCT Contributor.ContributorName SEPARATOR ', ') AS Contributors,
@@ -73,50 +52,12 @@ $results = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
-<html>
-
-<link rel="stylesheet" type="text/css" href="styles.css">
+<html lang="en">
 
 <head>
     <title>Search Results - Karaoke Event Application</title>
-    <script>
-        function sortTable(n) {
-            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-            table = document.getElementById("searchTable");
-            switching = true;
-            dir = "asc";
-            while (switching) {
-                switching = false;
-                rows = table.rows;
-                for (i = 1; i < (rows.length - 1); i++) {
-                    shouldSwitch = false;
-                    x = rows[i].getElementsByTagName("TD")[n];
-                    y = rows[i + 1].getElementsByTagName("TD")[n];
-                    if (dir == "asc") {
-                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                            shouldSwitch = true;
-                            break;
-                        }
-                    } else if (dir == "desc") {
-                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                            shouldSwitch = true;
-                            break;
-                        }
-                    }
-                }
-                if (shouldSwitch) {
-                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                    switching = true;
-                    switchcount++;
-                } else {
-                    if (switchcount == 0 && dir == "asc") {
-                        dir = "desc";
-                        switching = true;
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="main.js"></script>
 </head>
 
 <body>
@@ -126,16 +67,17 @@ $results = $stmt->fetchAll();
             <p class="form-label">No songs were found that match your search.</p>
         <?php else : ?>
             <p class="form-label">Here are the songs that match your search:</p>
+            <p class="form-label">Click on the column headers to sort the table.</p>
             <br>
             <div class="table-container2">
                 <table id="searchTable">
                     <tr>
-                        <th onclick="sortTable(0)">Song</th>
-                        <th onclick="sortTable(1)">Artist</th>
-                        <th onclick="sortTable(2)">Genre</th>
-                        <th onclick="sortTable(3)">Version</th>
-                        <th onclick="sortTable(4)">Contributors</th>
-                        <th onclick="sortTable(5)">Roles</th>
+                        <th class="clickable-header" onclick="sortTable(0, 'searchTable')">Song</th>
+                        <th class="clickable-header" onclick="sortTable(1, 'searchTable')">Artist</th>
+                        <th class="clickable-header" onclick="sortTable(2, 'searchTable')">Genre</th>
+                        <th class="clickable-header" onclick="sortTable(3, 'searchTable')">Version</th>
+                        <th class="clickable-header" onclick="sortTable(4, 'searchTable')">Contributors</th>
+                        <th class="clickable-header" onclick="sortTable(5, 'searchTable')">Roles</th>
                     </tr>
                     <?php foreach ($results as $result) : ?>
                         <tr>
@@ -148,10 +90,11 @@ $results = $stmt->fetchAll();
                         </tr>
                     <?php endforeach; ?>
                 </table>
-                <a href="ind.php" class="back-button">Back</a>
+
             </div>
         <?php endif; ?>
     </div>
+    <a href="user.php" class="back-button">Back</a>
 </body>
 
 </html>

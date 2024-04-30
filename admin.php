@@ -3,13 +3,12 @@ include 'db_connect.php';
 ?>
 
 <!DOCTYPE html>
-<html>
-
-<link rel="stylesheet" type="text/css" href="styles.css">
+<html lang="en">
 
 <head>
     <title>Admin</title>
-    
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="main.js"></script>
 </head>
 
 <body class="admin-body">
@@ -19,15 +18,18 @@ include 'db_connect.php';
 
     <div id="loader" class="loader"></div>
 
-    <script>
-        function showLoader() {
-            document.getElementById('loader').style.display = 'block';
-        }
-    </script>
+    <form action="clear_queue.php" method="post">
+        <button type="submit" class="button">Clear Queue</button>
+    </form>
+
+    <form action="clear_playlist.php" method="post">
+        <button type="submit" class="button">Clear Playlist</button>
+    </form>
 
     <div>
         <a href="ind.php" class="back-button">Back</a>
     </div>
+
 
 </body>
 
