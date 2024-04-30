@@ -1,6 +1,3 @@
-Queries: 
-
-
 SELECT Song.SongID, Song.SongName, Artist.ArtistName
 FROM Song
 JOIN Artist ON Song.ArtistID = Artist.ArtistID;
