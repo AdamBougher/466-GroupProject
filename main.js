@@ -22,7 +22,6 @@ function showLoader() {
     document.getElementById('loader').style.display = 'block';
 }
 
-
 // used in signup
 function selectSong(songId, songName, clickedRow) {
     var table = document.getElementById('songTable');
@@ -43,6 +42,7 @@ function selectSong(songId, songName, clickedRow) {
 
 // used in search
 /*function sortTable(n) {
+function sortTable(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("searchTable");
     switching = true;
@@ -77,6 +77,7 @@ function selectSong(songId, songName, clickedRow) {
             }
         }
     }
+<<<<<<< HEAD
 }*/
 
 // good
@@ -255,9 +256,6 @@ function addToPlaylist() {
     });
 }
 
-
-
-
 function nextSong() {
     // Send a request to next_song.php
     fetch('next_song.php', { method: 'POST' })
@@ -266,5 +264,3 @@ function nextSong() {
             location.reload();
         });
 }
-
-

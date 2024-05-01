@@ -4,9 +4,6 @@ include 'db_connect.php';
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-// $normalQueue = $pdo->query("SELECT q.QueueID, u.UserName, s.SongName, q.Price FROM Queue q JOIN User u ON q.UserID = u.UserID JOIN Song s ON q.SongID = s.SongID WHERE q.Price IS NULL OR q.Price = 0")->fetchAll();
-// $priorityQueue = $pdo->query("SELECT q.QueueID, u.UserName, s.SongName, q.Price FROM Queue q JOIN User u ON q.UserID = u.UserID JOIN Song s ON q.SongID = s.SongID WHERE q.Price IS NOT NULL AND q.Price <> 0")->fetchAll();
-
 
 
 session_start();
@@ -78,16 +75,16 @@ GROUP BY q.QueueID
         <br>
         <table id="normalQueueTable">
             <tr>
-                <th class="clickable-header" onclick="sortTable(0, 'normalQueueTable')">Queue ID</th>
-                <th>Song Name</th>
+                <th class="clickable-header" onclick="sortTable(0, 'normalQueueTable')">Order</th>
+                <th>Song</th>
                 <th>Artist</th>
                 <th>Genre</th>
-                <th>FileID</th>
+                <!-- <th>FileID</th> -->
                 <th>Version</th>
-                <th>Contributors</th>
-                <th>Roles</th>
+                <!-- <th>Contributors</th> -->
+                <!-- <th>Roles</th> -->
                 <th>User Name</th>
-                <th>Price</th>
+                <th> Price </th>
             </tr>
             <?php foreach ($normalQueue as $queueItem) : ?>
                 <tr onclick="selectQueue(this, 'normalQueueTable')">
@@ -95,12 +92,12 @@ GROUP BY q.QueueID
                     <td><?php echo $queueItem['SongName']; ?></td>
                     <td><?php echo $queueItem['ArtistName']; ?></td>
                     <td><?php echo $queueItem['GenreName']; ?></td>
-                    <td><?php echo $queueItem['KaraokeFileID']; ?></td>
+                    <!-- <td><?php //echo $queueItem['KaraokeFileID']; ?></td> -->
                     <td><?php echo $queueItem['VersionName']; ?></td>
-                    <td><?php echo $queueItem['Contributors']; ?></td>
-                    <td><?php echo $queueItem['Roles']; ?></td>
+                    <!-- <td><?php //echo $queueItem['Contributors']; ?></td> -->
+                    <!-- <td><?php //echo $queueItem['Roles']; ?></td> -->
                     <td><?php echo $queueItem['UserName']; ?></td>
-                    <td><?php echo $queueItem['Price']; ?></td>
+                    <td><?php echo "0.00"; ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>
@@ -112,14 +109,14 @@ GROUP BY q.QueueID
         <br>
         <table id="priorityQueueTable">
             <tr>
-                <th class="clickable-header" onclick="sortTable(0, 'priorityQueueTable')">Queue ID</th>
-                <th>Song Name</th>
+                <th class="clickable-header" onclick="sortTable(0, 'priorityQueueTable')">Order</th>
+                <th>Song</th>
                 <th>Artist</th>
                 <th>Genre</th>
-                <th>FileID</th>
+                <!-- <th>FileID</th> -->
                 <th>Version</th>
-                <th>Contributors</th>
-                <th>Roles</th>
+                <!-- <th>Contributors</th> -->
+                <!-- <th>Roles</th> -->
                 <th>User Name</th>
                 <th class="clickable-header" onclick="sortTable(9, 'priorityQueueTable')">Price</th>
             </tr>
@@ -129,10 +126,10 @@ GROUP BY q.QueueID
                     <td><?php echo $queueItem['SongName']; ?></td>
                     <td><?php echo $queueItem['ArtistName']; ?></td>
                     <td><?php echo $queueItem['GenreName']; ?></td>
-                    <td><?php echo $queueItem['KaraokeFileID']; ?></td>
+                    <!-- <td><?php //echo $queueItem['KaraokeFileID']; ?></td> -->
                     <td><?php echo $queueItem['VersionName']; ?></td>
-                    <td><?php echo $queueItem['Contributors']; ?></td>
-                    <td><?php echo $queueItem['Roles']; ?></td>
+                    <!-- <td><?php //echo $queueItem['Contributors']; ?></td> -->
+                    <!-- <td><?php //echo $queueItem['Roles']; ?></td> -->
                     <td><?php echo $queueItem['UserName']; ?></td>
                     <td><?php echo $queueItem['Price']; ?></td>
                 </tr>

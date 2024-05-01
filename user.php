@@ -5,6 +5,14 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include 'db_connect.php';
+
+$songs = $pdo->query("
+SELECT * FROM Queue q
+JOIN Song s ON q.SongID = s.SongID
+JOIN User u ON q.UserID = u.UserID
+ORDER BY q.QueueID ASC
+")->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +35,24 @@ include 'db_connect.php';
             <input type="text" name="search" placeholder="Search for songs...">
             <input type="submit" value="Search" class="search-button">
         </form>
-        
+
+        <h1>Current Queue</h1>
+        <div style="overflow-x: auto;">
+            <table id="Song List">
+                    <tr>
+                        <th>Singer</th>
+                        <th>Song</th>
+                    </tr>
+                    <?php if (!empty($songs)) : ?>
+                        <?php foreach ($songs as $song) : ?>
+                            <tr onclick="selectSong('<?php echo $song['SongID']; ?>', '<?php echo $song['SongName']; ?>', this)">
+                                <td><?php echo $song['UserName']?></td>
+                                <td><?php echo $song['SongName'];?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+            </table>
+        </div>
         <br>
         <h2>Sign Up to Sing</h2>
         <p class="form-label">Found a song you want to sing? Great! Select the song and choose your queue:</p>

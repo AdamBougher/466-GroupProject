@@ -5,17 +5,6 @@ include 'db_connect.php';
 // Get the search term from the form
 $searchTerm = $_POST['search'];
 
-// SQL query to search for songs
-// $query = "SELECT SongName, ArtistName FROM Song JOIN Artist ON Song.ArtistID = Artist.ArtistID WHERE SongName LIKE :searchTerm OR ArtistName LIKE :searchTerm";
-/*$query = "SELECT Song.SongName, Artist.ArtistName, Contributor.ContributorName 
-          FROM Song 
-          JOIN Artist ON Song.ArtistID = Artist.ArtistID 
-          JOIN SongContributor ON Song.SongID = SongContributor.SongID 
-          JOIN Contributor ON SongContributor.ContributorID = Contributor.ContributorID 
-          WHERE Song.SongName LIKE :searchTerm 
-          OR Artist.ArtistName LIKE :searchTerm 
-          OR Contributor.ContributorName LIKE :searchTerm";
-*/
 
 $query = "
 SELECT Song.SongName, Artist.ArtistName, Genre.GenreName, VersionOfSong.VersionName, 

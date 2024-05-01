@@ -4,11 +4,15 @@ include 'db_connect.php';
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Admin</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="main.js"></script>
+<html>
+
+<head>
+    <title>Admin</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">    
 </head>
 
 <body class="admin-body">
