@@ -4,21 +4,14 @@ include 'db_connect.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Admin</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="main.js"></script>
-<html>
-
-<head>
-    <title>Admin</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">    
 </head>
 
 <body class="admin-body">
-    <form action="reset_db.php" method="post" onsubmit="showLoader()">
-        <button type="submit" class="button">Rebuild Database</button>
-    </form>
 
     <div id="loader" class="loader"></div>
 
