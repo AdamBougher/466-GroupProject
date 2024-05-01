@@ -256,9 +256,6 @@ function addToPlaylist() {
     });
 }
 
-
-
-
 function nextSong() {
     // Send a request to next_song.php
     fetch('next_song.php', { method: 'POST' })

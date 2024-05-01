@@ -6,19 +6,18 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 $songs = $pdo->query("
-SELECT s.SongID, s.Title AS SongName, s.ArtistName, s.Genre, kf.Version AS VersionName
+SELECT s.SongID, s.SongName, a.ArtistName, g.GenreName, v.VersionName
 FROM Song s
-JOIN KaraokeFiles kf ON s.SongID = kf.SongID
+JOIN Artist a ON s.ArtistID = a.ArtistID
+JOIN Genre g ON s.GenreID = g.GenreID
+JOIN VersionOfSong v ON s.SongID = v.SongID
 ")->fetchAll();
-
-
 
 $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 
 <head>
     <title>Sign Up to Sing - Karaoke Event Application</title>
@@ -57,7 +56,7 @@ $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
                         <tr onclick="selectSong('<?php echo $song['SongID']; ?>', '<?php echo $song['SongName']; ?>', this)">
                             <td><?php echo $song['SongName'] . " - " . $song['VersionName']; ?></td>
                             <td><?php echo $song['ArtistName']; ?></td>
-                            <td><?php echo $song['Genre']; ?></td>
+                            <td><?php echo $song['GenreName']; ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php endif; ?>

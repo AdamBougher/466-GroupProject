@@ -8,19 +8,22 @@ include 'db_connect.php';
 
 // Get the form data
 $userName = $_POST['userName'];
-$fileId = $_POST['selectedSong'];
+$songId = $_POST['selectedSong'];
 $price = isset($_POST['price']) && !empty($_POST['price']) ? $_POST['price'] : NULL;
 
-if($price == null || $price <= 0){
-    $table = 'Queue';
-} else{
-    $table = 'PriorityQueue';
-}
+// Get the user ID from the User table
+$stmt = $pdo->prepare("SELECT UserID FROM User WHERE UserName = :userName");
+$stmt->bindValue(':userName', $userName);
+$stmt->execute();
+$user = $stmt->fetch();
 
-$stmt = $pdo->prepare("INSERT INTO $table (FileID, UserName, Price) VALUES (:fileId, :userName, :price)");
+$table = 'Queue';
+
+$stmt = $pdo->prepare("INSERT INTO $table (SongID, UserID, UserName, Price) VALUES (:songId, :userId, :userName, :price)");
 
 // Bind the values
-$stmt->bindValue(':fileId', $fileId);
+$stmt->bindValue(':songId', $songId);
+$stmt->bindValue(':userId', $user['UserID']);
 $stmt->bindValue(':userName', $userName);
 $stmt->bindValue(':price', $price);
 

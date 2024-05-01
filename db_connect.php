@@ -1,9 +1,9 @@
 <?php
-$username = "z1950234";
-$password = "1999Jan09";
+$username = "z1957141";
+$password = "2003Dec21";
 
 try { 
-    $dsn = "mysql:host=courses;dbname=z1950234";
+    $dsn = "mysql:host=courses;dbname=z1957141";
     $pdo = new PDO($dsn, $username, $password);
 }
 catch(PDOexception $e) { 
