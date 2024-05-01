@@ -41,7 +41,8 @@ VALUES
     (2, "Katy Perry"),
     (3, "Ed Sheeran"),
     (4, "Luis Fonsi"),
-    (5, "Daddy Yankee");
+    (5, "Daddy Yankee"),
+    (6, "Kesha");
 
 
 CREATE TABLE Role (
@@ -97,7 +98,8 @@ VALUES
     (8, "Perfect", 3, 1, 108),
     (9, "Echame La Culpa", 4, 1, 109),
     (10, "Dura", 5, 5, 110),
-    (11, "Baby", 1, 1, 111);
+    (11, "Baby", 1, 1, 111),
+    (12, "Tik Tok", 6, 1, 112);
 
 CREATE TABLE VersionOfSong (
     VersionID INT PRIMARY KEY NOT NULL,
@@ -119,7 +121,8 @@ VALUES
     (8, 8, "Acoustic", 208),
     (9, 9, "Live", 209),
     (10, 10, "Remix", 210),
-    (11, 11, "Acoustic", 211);
+    (11, 11, "Acoustic", 211),
+    (12, 12, "Live", 212);
 
 
 CREATE TABLE SongContributor (
@@ -152,17 +155,3 @@ CREATE TABLE Queue (
     FOREIGN KEY (SongID) REFERENCES Song(SongID),
     FOREIGN KEY (UserID) REFERENCES User(UserID)
 );
-
-INSERT INTO Queue (SongID, UserID, UserName, Price)
-VALUES 
-    (1,1, "", 1.99),
-    (2,2, "", NULL),
-    (3,3, "", 120),
-    (4,4, "", 9000),
-    (5,5, "", 0),
-    (6,6, "", NULL),
-    (7,7, "", 0),
-    (8,8, "", 0),
-    (9,9, "", NULL),
-    (10,10, "", 250),
-    (11,1, "", 0.01);

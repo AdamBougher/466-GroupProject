@@ -1,16 +1,3 @@
-<?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-$form_data = $_POST;
-include 'db_connect.php';
-
-$songs = $pdo->query("
-    SELECT * FROM Song
-    ")->fetchAll();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,13 +9,12 @@ $songs = $pdo->query("
 
 <body>
     <div class="admin-body">
-        <h1 style="font-size: 2em;">Welcome to Karaoke Event Application</h1> 
-        <p style="font-size: 1.5em;">Please select your role:</p>
-
+        <h1 class="main-header">Welcome to Karaoke Event Application</h1> 
+        <p class="form-label">Please select your role:</p>
+        <br>
         <a href="user.php" class="button">User</a>
         <a href="dj.php" class="button">DJ</a>
         <a href="admin.php" class="button">Admin</a>
-        
     </div>
 </body>
 

@@ -366,3 +366,10 @@ p {
   box-shadow: 0 0 5px #ff43a4, /* Inner glow */ 0 0 10px #ff43a4,
     /* Middle glow */ 0 0 15px #ff43a4, /* Outer glow */ 0 0 20px #ff43a4; /* Far outer glow */
 }
+
+.songCover {
+  width: 250px; /* specify the width */
+  height: 250px; /* specify the height */
+  object-fit: cover; /* this will ensure that the aspect ratio of the images is maintained */
+}
+

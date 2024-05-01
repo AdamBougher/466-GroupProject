@@ -22,6 +22,7 @@ function showLoader() {
     document.getElementById('loader').style.display = 'block';
 }
 
+
 // used in signup
 function selectSong(songId, songName, clickedRow) {
     var table = document.getElementById('songTable');
@@ -40,83 +41,6 @@ function selectSong(songId, songName, clickedRow) {
     document.getElementById('song').value = songName;
 }
 
-// used in search
-/*function sortTable(n) {
-function sortTable(n) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("searchTable");
-    switching = true;
-    dir = "asc";
-    while (switching) {
-        switching = false;
-        rows = table.rows;
-        for (i = 1; i < (rows.length - 1); i++) {
-            shouldSwitch = false;
-            x = rows[i].getElementsByTagName("TD")[n];
-            y = rows[i + 1].getElementsByTagName("TD")[n];
-            if (dir == "asc") {
-                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                    shouldSwitch = true;
-                    break;
-                }
-            } else if (dir == "desc") {
-                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                    shouldSwitch = true;
-                    break;
-                }
-            }
-        }
-        if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-            switchcount++;
-        } else {
-            if (switchcount == 0 && dir == "asc") {
-                dir = "desc";
-                switching = true;
-            }
-        }
-    }
-<<<<<<< HEAD
-}*/
-
-// good
-/*function sortTable(n, tableId) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById(tableId);
-    switching = true;
-    dir = "asc";
-    while (switching) {
-        switching = false;
-        rows = table.rows;
-        for (i = 1; i < (rows.length - 1); i++) {
-            shouldSwitch = false;
-            x = rows[i].getElementsByTagName("TD")[n];
-            y = rows[i + 1].getElementsByTagName("TD")[n];
-            if (dir == "asc") {
-                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                    shouldSwitch = true;
-                    break;
-                }
-            } else if (dir == "desc") {
-                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                    shouldSwitch = true;
-                    break;
-                }
-            }
-        }
-        if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-            switchcount++;
-        } else {
-            if (switchcount == 0 && dir == "asc") {
-                dir = "desc";
-                switching = true;
-            }
-        }
-    }
-}*/
 
 
 function sortTable(n, tableId) {
@@ -201,32 +125,6 @@ function selectQueue(clickedRow) {
 
 
 
-/*function addToPlaylist() {
-    // Get the selected row
-    var selectedRow = document.querySelector('.selected');
-
-    // If no row is selected, do nothing
-    if (!selectedRow) return;
-
-    // Add the selected song to the playlist
-    var songName = selectedRow.cells[1].textContent; // Song Name
-    var artistName = selectedRow.cells[2].textContent; // Artist
-
-    // Make a fetch request to the PHP script to add the song to the session playlist
-    var formData = new URLSearchParams();
-    formData.append('song', songName);
-    formData.append('artist', artistName);
-
-    fetch('add_to_playlist.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(() => {
-        // Refresh the page after the request is complete
-        location.reload();
-    });
-}*/
-
 
 function addToPlaylist() {
     // Get the selected row
@@ -256,6 +154,9 @@ function addToPlaylist() {
     });
 }
 
+
+
+
 function nextSong() {
     // Send a request to next_song.php
     fetch('next_song.php', { method: 'POST' })
@@ -264,3 +165,5 @@ function nextSong() {
             location.reload();
         });
 }
+
+
