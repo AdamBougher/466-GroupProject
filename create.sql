@@ -45,9 +45,9 @@ INSERT INTO Song VALUES
 (6, 'California Gurls', 'Pop', 3.54, 'Katy Perry'),
 (7, 'Teenage Dream', 'Pop', 3.47, 'Katy Perry'),
 (8, 'Shape of You', 'pop', 3.50, 'Ed Sheeran'),
-(9, 'Thinking Out Loud', 'pop', 4.41, 'Ed Sheeran'),
+(9, 'Tik Tok', 'pop', 4.41, 'Kesha'),
 (10, 'Perfect', 'pop', 4.23, 'Ed Sheeran'),
-(11, 'Castle on the Hill', 'pop', 4.21, 'Ed Sheeran'),
+(11, 'Dura', 'Hip hop', 4.21, 'Daddy Yankee'),
 (12, 'Con Calma', 'pop', 4.37, 'Daddy Yankee'),
 (13, 'Love Yourself', 'pop', 3.50, "Justin Bieber"),
 (14, 'Sorry', 'pop', 3.20, 'Justin Bieber'),
@@ -56,7 +56,7 @@ INSERT INTO Song VALUES
 (17, 'Echame La Culpa', 'pop', 3.07, 'Luis Fonsi'),
 (18, 'No Me Doy Por Vencido', 'pop', 3.57, 'Luis Fonsi'),
 (19, 'Imposible', 'pop', 3.17, 'Luis Fonsi'),
-(20, 'Calypso', 'pop', 3.23, 'Luis Fonsi');
+(20, 'Baby', 'pop', 3.23, 'Justin Bieber');
 
 INSERT INTO KaraokeFiles VALUES 
 (1, 'Firework', 3),
@@ -65,9 +65,9 @@ INSERT INTO KaraokeFiles VALUES
 (4, 'California Gurls', 6),
 (5, 'Teenage Dream', 7),
 (6, 'Shape of You', 8),
-(7, 'Thinking Out Loud', 9),
+(7, 'Tik Tok', 9),
 (8, 'Perfect', 10),
-(9, 'Castle on the Hill', 11),
+(9, 'Dura', 11),
 (10, 'Con Calma', 12),
 (11, 'Love Yourself', 13),
 (12, 'Sorry', 14),
@@ -76,5 +76,5 @@ INSERT INTO KaraokeFiles VALUES
 (15, 'Echame La Culpa', 17),
 (16, 'No Me Doy Por Vencido', 18),
 (17, 'Imposible', 19),
-(18, 'Calypso', 20);
+(18, 'Baby', 20);
 
