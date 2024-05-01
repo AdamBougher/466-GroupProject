@@ -16,7 +16,7 @@ if (!isset($_SESSION['current_song'])) {
     $_SESSION['current_song'] = null;
 }
 
-
+/*** !Update these queries to create.sql ***/
 $normalQueue = $pdo->query("
 SELECT q.QueueID, u.UserName, s.SongName, a.ArtistName, g.GenreName, v.VersionName, s.KaraokeFileID,
 GROUP_CONCAT(DISTINCT c.ContributorName SEPARATOR ', ') AS Contributors,
@@ -34,7 +34,7 @@ WHERE q.Price IS NULL OR q.Price = 0
 GROUP BY q.QueueID
 ")->fetchAll();
 
-
+/*** !Update these queries to create.sql ***/
 $priorityQueue = $pdo->query("
 SELECT q.QueueID, u.UserName, s.SongName, a.ArtistName, g.GenreName, v.VersionName , s.KaraokeFileID, 
 GROUP_CONCAT(DISTINCT c.ContributorName SEPARATOR ', ') AS Contributors,

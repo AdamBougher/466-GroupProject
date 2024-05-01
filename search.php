@@ -16,7 +16,7 @@ $searchTerm = $_POST['search'];
           OR Artist.ArtistName LIKE :searchTerm 
           OR Contributor.ContributorName LIKE :searchTerm";
 */
-
+/*** !Update these queries to create.sql ***/
 $query = "
 SELECT Song.SongName, Artist.ArtistName, Genre.GenreName, VersionOfSong.VersionName, 
 GROUP_CONCAT(DISTINCT Contributor.ContributorName SEPARATOR ', ') AS Contributors,

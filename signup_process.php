@@ -6,6 +6,8 @@ error_reporting(E_ALL);
 
 include 'db_connect.php';
 
+/*** !Update to match create.sql ***/
+
 // Get the form data
 $userName = $_POST['userName'];
 $songId = $_POST['selectedSong'];

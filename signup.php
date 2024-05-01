@@ -6,7 +6,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 
-
+/*** !Update  query to create.sql ***/
 $users = $pdo->query("SELECT * FROM User")->fetchAll();
 /*$songs = $pdo->query("SELECT Song.SongID, Song.SongName, Artist.ArtistName, Genre.GenreName, VersionOfSong.VersionName, 
 GROUP_CONCAT(DISTINCT Contributor.ContributorName SEPARATOR ', ') AS Contributors,
@@ -20,7 +20,7 @@ JOIN Contributor ON SongContributor.ContributorID = Contributor.ContributorID
 JOIN Role ON Contributor.RoleID = Role.RoleID
 GROUP BY Song.SongID, VersionOfSong.VersionName;")->fetchAll();*/
 
-
+/*** !Update  query to create.sql ***/
 $songs = $pdo->query("
 SELECT Song.SongID, Song.SongName, Artist.ArtistName, Genre.GenreName, VersionOfSong.VersionName, 
 GROUP_CONCAT(DISTINCT Contributor.ContributorName SEPARATOR ', ') AS Contributors,
@@ -73,6 +73,7 @@ $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
                 <?php if (!empty($songs)) : ?>
                     <?php foreach ($songs as $song) : ?>
                         <tr onclick="selectSong('<?php echo $song['SongID']; ?>', '<?php echo $song['SongName']; ?>', this)">
+                            <!-- Add folder song_tb to public_html directory -->
                             <td><img src="song_tb/<?php echo $song['SongName']; ?>.jpg" alt="Song Cover" class="songCover"></td>
                             <td><?php echo $song['SongName'] . " - " . $song['VersionName']; ?></td>
                             <td><?php echo $song['ArtistName']; ?></td>
