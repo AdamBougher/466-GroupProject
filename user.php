@@ -5,6 +5,18 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include 'db_connect.php';
+
+$songs = $pdo->query("
+SELECT * FROM (
+SELECT * FROM Queue 
+UNION 
+SELECT * FROM PriorityQueue
+) q
+JOIN KaraokeFiles k ON q.FileID = k.FileID
+JOIN Song s ON k.SongID = s.SongID
+ORDER BY q.QueueID ASC
+")->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +39,26 @@ include 'db_connect.php';
             <input type="text" name="search" placeholder="Search for songs...">
             <input type="submit" value="Search" class="search-button">
         </form>
-        
+
+        <h1>Current Queue</h1>
+        <div style="overflow-x: auto;">
+            <table id="Song List">
+                    <tr>
+                        <th>Singer</th>
+                        <th>Song</th>
+                        <th>Length</th>
+                    </tr>
+                    <?php if (!empty($songs)) : ?>
+                        <?php foreach ($songs as $song) : ?>
+                            <tr onclick="selectSong('<?php echo $song['SongID']; ?>', '<?php echo $song['Title']; ?>', this)">
+                                <td><?php echo $song['Username']?></td>
+                                <td><?php echo $song['Title'] . " By " . $song['ArtistName'] . " - " . $song['Version'];;?></td>
+                                <td><?php echo $song['SongLength'];?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+            </table>
+        </div>
         <br>
         <h2>Sign Up to Sing</h2>
         <p class="form-label">Found a song you want to sing? Great! Select the song and choose your queue:</p>
