@@ -1,4 +1,9 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // Database connection file
 include 'db_connect.php';
 
@@ -6,37 +11,16 @@ include 'db_connect.php';
 $searchTerm = $_POST['search'];
 
 // SQL query to search for songs
-// $query = "SELECT SongName, ArtistName FROM Song JOIN Artist ON Song.ArtistID = Artist.ArtistID WHERE SongName LIKE :searchTerm OR ArtistName LIKE :searchTerm";
-/*$query = "SELECT Song.SongName, Artist.ArtistName, Contributor.ContributorName 
-          FROM Song 
-          JOIN Artist ON Song.ArtistID = Artist.ArtistID 
-          JOIN SongContributor ON Song.SongID = SongContributor.SongID 
-          JOIN Contributor ON SongContributor.ContributorID = Contributor.ContributorID 
-          WHERE Song.SongName LIKE :searchTerm 
-          OR Artist.ArtistName LIKE :searchTerm 
-          OR Contributor.ContributorName LIKE :searchTerm";
-*/
-/*** !Update these queries to create.sql ***/
 $query = "
-SELECT Song.SongName, Artist.ArtistName, Genre.GenreName, VersionOfSong.VersionName, 
-GROUP_CONCAT(DISTINCT Contributor.ContributorName SEPARATOR ', ') AS Contributors,
-GROUP_CONCAT(DISTINCT Role.RoleName SEPARATOR ', ') AS Roles
+SELECT Song.Title AS SongName, Contributor.ArtistName, Song.Genre AS GenreName, KaraokeFiles.Title AS VersionName
 FROM Song
-JOIN Artist ON Song.ArtistID = Artist.ArtistID
-JOIN Genre ON Song.GenreID = Genre.GenreID
-JOIN VersionOfSong ON Song.SongID = VersionOfSong.SongID
-LEFT JOIN SongContributor ON Song.SongID = SongContributor.SongID
-LEFT JOIN Contributor ON SongContributor.ContributorID = Contributor.ContributorID
-LEFT JOIN Role ON Contributor.RoleID = Role.RoleID
-WHERE Song.SongName LIKE :searchTerm 
-OR Artist.ArtistName LIKE :searchTerm 
-OR Contributor.ContributorName LIKE :searchTerm
-OR Genre.GenreName LIKE :searchTerm
-OR VersionOfSong.VersionName LIKE :searchTerm
-OR Role.RoleName LIKE :searchTerm
-GROUP BY Song.SongID, VersionOfSong.VersionName;
+JOIN Contributor ON Song.ArtistName = Contributor.ArtistName
+JOIN KaraokeFiles ON Song.SongID = KaraokeFiles.SongID
+WHERE Song.Title LIKE :searchTerm 
+OR Contributor.ArtistName LIKE :searchTerm 
+OR Song.Genre LIKE :searchTerm
+OR KaraokeFiles.Title LIKE :searchTerm
 ";
-
 
 // Prepare the SQL statement
 $stmt = $pdo->prepare($query);
@@ -76,8 +60,6 @@ $results = $stmt->fetchAll();
                         <th class="clickable-header" onclick="sortTable(1, 'searchTable')">Artist</th>
                         <th class="clickable-header" onclick="sortTable(2, 'searchTable')">Genre</th>
                         <th class="clickable-header" onclick="sortTable(3, 'searchTable')">Version</th>
-                        <th class="clickable-header" onclick="sortTable(4, 'searchTable')">Contributors</th>
-                        <th class="clickable-header" onclick="sortTable(5, 'searchTable')">Roles</th>
                     </tr>
                     <?php foreach ($results as $result) : ?>
                         <tr>
@@ -85,8 +67,6 @@ $results = $stmt->fetchAll();
                             <td><?php echo $result['ArtistName']; ?></td>
                             <td><?php echo $result['GenreName']; ?></td>
                             <td><?php echo $result['VersionName']; ?></td>
-                            <td><?php echo $result['Contributors']; ?></td>
-                            <td><?php echo $result['Roles']; ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </table>

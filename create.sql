@@ -21,21 +21,13 @@ CREATE TABLE
 
 CREATE TABLE
     Queue (
-        QueueID INT PRIMARY KEY NOT NULL,
+        QueueID INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
         FileID INT NOT NULL,
         Username VARCHAR(255) NOT NULL,
-        Price DECIMAL(4, 2),
+        Price DECIMAL(10, 2),
         FOREIGN KEY (FileID) REFERENCES KaraokeFiles (FileID)
     );
 
-CREATE TABLE
-    PriorityQueue (
-        QueueID INT PRIMARY KEY NOT NULL,
-        FileID INT NOT NULL,
-        Username VARCHAR(255) NOT NULL,
-        Price DECIMAL(4, 2) NOT NULL,
-        FOREIGN KEY (FileID) REFERENCES KaraokeFiles (FileID)
-    );
 
 INSERT INTO
     Contributor

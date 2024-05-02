@@ -43,6 +43,10 @@ function selectSong(songId, songName, clickedRow) {
 
 
 
+function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
 function sortTable(n, tableId) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById(tableId);
@@ -56,7 +60,7 @@ function sortTable(n, tableId) {
             x = rows[i].getElementsByTagName("TD")[n];
             y = rows[i + 1].getElementsByTagName("TD")[n];
             if (dir == "asc") {
-                if (isNaN(x.innerHTML) || isNaN(y.innerHTML)) { // Compare as strings
+                if (!isNumeric(x.innerHTML) || !isNumeric(y.innerHTML)) { // Compare as strings
                     if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
                         shouldSwitch = true;
                         break;
@@ -68,7 +72,7 @@ function sortTable(n, tableId) {
                     }
                 }
             } else if (dir == "desc") {
-                if (isNaN(x.innerHTML) || isNaN(y.innerHTML)) { // Compare as strings
+                if (!isNumeric(x.innerHTML) || !isNumeric(y.innerHTML)) { // Compare as strings
                     if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
                         shouldSwitch = true;
                         break;
@@ -93,6 +97,7 @@ function sortTable(n, tableId) {
         }
     }
 }
+
 
 
 

@@ -1,4 +1,20 @@
 
+-- new 
+
+DROP TABLE IF EXISTS Queue;
+DROP TABLE IF EXISTS PriorityQueue;
+DROP TABLE IF EXISTS KaraokeFiles;
+DROP TABLE IF EXISTS Song;
+DROP TABLE IF EXISTS Contributor;
+
+
+
+
+
+
+-- old
+
+
 DROP TABLE IF EXISTS Queue;
 DROP TABLE IF EXISTS VersionOfSong;
 DROP TABLE IF EXISTS SongContributor;
@@ -8,13 +24,6 @@ DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Song;
 DROP TABLE IF EXISTS Artist;
 DROP TABLE IF EXISTS Genre;
-
-
-
-
-
-
-
 
 
 SELECT * FROM Queue;

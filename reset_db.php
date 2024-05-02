@@ -6,14 +6,10 @@ function resetDatabase($pdo)
     // SQL statements to drop existing tables
     $dropStatements = [
         "DROP TABLE IF EXISTS Queue;",
-        "DROP TABLE IF EXISTS VersionOfSong;",
-        "DROP TABLE IF EXISTS SongContributor;",
-        "DROP TABLE IF EXISTS Contributor;",
-        "DROP TABLE IF EXISTS Role;",
-        "DROP TABLE IF EXISTS User;",
+        "DROP TABLE IF EXISTS PriorityQueue;",
+        "DROP TABLE IF EXISTS KaraokeFiles;",
         "DROP TABLE IF EXISTS Song;",
-        "DROP TABLE IF EXISTS Artist;",
-        "DROP TABLE IF EXISTS Genre;"
+        "DROP TABLE IF EXISTS Contributor;", 
     ];
 
     // Execute each DROP statement
@@ -22,7 +18,7 @@ function resetDatabase($pdo)
     }
 
     // Path to sql file
-    $filePath = '/home/hopper/z2012420/public_html/script.sql';
+    $filePath = '/home/hopper/z2012420/public_html/create.sql';
 
     // Read the SQL file
     $sql = file_get_contents($filePath);
