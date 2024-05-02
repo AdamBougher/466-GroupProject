@@ -99,7 +99,8 @@ VALUES
     (9, "Echame La Culpa", 4, 1, 109),
     (10, "Dura", 5, 5, 110),
     (11, "Baby", 1, 1, 111),
-    (12, "Tik Tok", 6, 1, 112);
+    (12, "Tik Tok", 6, 1, 112),
+    (13, "California Gurls", 2, 1, 113);
 
 CREATE TABLE VersionOfSong (
     VersionID INT PRIMARY KEY NOT NULL,
@@ -122,7 +123,8 @@ VALUES
     (9, 9, "Live", 209),
     (10, 10, "Remix", 210),
     (11, 11, "Acoustic", 211),
-    (12, 12, "Live", 212);
+    (12, 12, "Live", 212),
+    (13, 13, "Remix", 213);
 
 
 CREATE TABLE SongContributor (

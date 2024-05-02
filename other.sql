@@ -11,6 +11,12 @@ DROP TABLE IF EXISTS Genre;
 
 
 
+
+
+
+
+
+
 SELECT * FROM Queue;
 SELECT * FROM VersionOfSong;
 SELECT * FROM SongContributor;

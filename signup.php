@@ -8,35 +8,42 @@ error_reporting(E_ALL);
 
 /*** !Update  query to create.sql ***/
 $users = $pdo->query("SELECT * FROM User")->fetchAll();
-/*$songs = $pdo->query("SELECT Song.SongID, Song.SongName, Artist.ArtistName, Genre.GenreName, VersionOfSong.VersionName, 
-GROUP_CONCAT(DISTINCT Contributor.ContributorName SEPARATOR ', ') AS Contributors,
-GROUP_CONCAT(DISTINCT Role.RoleName SEPARATOR ', ') AS Roles
-FROM Song
-JOIN Artist ON Song.ArtistID = Artist.ArtistID
-JOIN Genre ON Song.GenreID = Genre.GenreID
-JOIN VersionOfSong ON Song.SongID = VersionOfSong.SongID
-JOIN SongContributor ON Song.SongID = SongContributor.SongID
-JOIN Contributor ON SongContributor.ContributorID = Contributor.ContributorID
-JOIN Role ON Contributor.RoleID = Role.RoleID
-GROUP BY Song.SongID, VersionOfSong.VersionName;")->fetchAll();*/
 
-/*** !Update  query to create.sql ***/
+
 $songs = $pdo->query("
-SELECT Song.SongID, Song.SongName, Artist.ArtistName, Genre.GenreName, VersionOfSong.VersionName, 
-GROUP_CONCAT(DISTINCT Contributor.ContributorName SEPARATOR ', ') AS Contributors,
-GROUP_CONCAT(DISTINCT Role.RoleName SEPARATOR ', ') AS Roles
-FROM Song
-JOIN Artist ON Song.ArtistID = Artist.ArtistID
-JOIN Genre ON Song.GenreID = Genre.GenreID
-JOIN VersionOfSong ON Song.SongID = VersionOfSong.SongID
-LEFT JOIN SongContributor ON Song.SongID = SongContributor.SongID
-LEFT JOIN Contributor ON SongContributor.ContributorID = Contributor.ContributorID
-LEFT JOIN Role ON Contributor.RoleID = Role.RoleID
-GROUP BY Song.SongID, VersionOfSong.VersionName;
+SELECT 
+    s.SongID, 
+    s.SongName, 
+    a.ArtistName, 
+    g.GenreName, 
+    v.VersionName, 
+    GROUP_CONCAT(DISTINCT c.ContributorName SEPARATOR ', ') AS Contributors,
+    GROUP_CONCAT(DISTINCT r.RoleName SEPARATOR ', ') AS Roles
+FROM 
+    Song s
+JOIN 
+    Artist a ON s.ArtistID = a.ArtistID
+JOIN 
+    Genre g ON s.GenreID = g.GenreID
+JOIN 
+    VersionOfSong v ON s.SongID = v.SongID
+LEFT JOIN 
+    SongContributor sc ON s.SongID = sc.SongID
+LEFT JOIN 
+    Contributor c ON sc.ContributorID = c.ContributorID
+LEFT JOIN 
+    Role r ON c.RoleID = r.RoleID
+GROUP BY 
+    s.SongID, v.VersionName;
 ")->fetchAll();
 
+
+
 $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,14 +79,20 @@ $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
                 </tr>
                 <?php if (!empty($songs)) : ?>
                     <?php foreach ($songs as $song) : ?>
+                        <?php
+                        $songImage = "song_tb/" . $song['SongName'] . ".jpg";
+                        $defaultImage = "song_tb/404.gif"; // path to stock image
+                        $songCover = file_exists($songImage) ? $songImage : $defaultImage;
+                        ?>
                         <tr onclick="selectSong('<?php echo $song['SongID']; ?>', '<?php echo $song['SongName']; ?>', this)">
                             <!-- Add folder song_tb to public_html directory -->
-                            <td><img src="song_tb/<?php echo $song['SongName']; ?>.jpg" alt="Song Cover" class="songCover"></td>
+                            <td><img src="<?php echo $songCover; ?>" alt="Song Cover" class="songCover"></td>
                             <td><?php echo $song['SongName'] . " - " . $song['VersionName']; ?></td>
                             <td><?php echo $song['ArtistName']; ?></td>
                             <td><?php echo $song['GenreName']; ?></td>
                         </tr>
                     <?php endforeach; ?>
+
                 <?php endif; ?>
             </table>
 

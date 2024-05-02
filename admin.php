@@ -15,6 +15,11 @@ include 'db_connect.php';
 
     <div id="loader" class="loader"></div>
 
+    <form action="reset_db.php" method="post" onsubmit="showLoader()">
+        <button type="submit" class="button">Rebuild Database</button>
+    </form>
+
+
     <form action="clear_queue.php" method="post">
         <button type="submit" class="button">Clear Queue</button>
     </form>
