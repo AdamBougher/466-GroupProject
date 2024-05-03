@@ -55,12 +55,14 @@ $results = $stmt->fetchAll();
             <br>
             <div class="table-container2">
                 <table id="searchTable">
-                    <tr>
-                        <th class="clickable-header" onclick="sortTable(0, 'searchTable')">Song</th>
-                        <th class="clickable-header" onclick="sortTable(1, 'searchTable')">Artist</th>
-                        <th class="clickable-header" onclick="sortTable(2, 'searchTable')">Genre</th>
-                        <th class="clickable-header" onclick="sortTable(3, 'searchTable')">Version</th>
-                    </tr>
+                    <thead>
+                        <tr class="headcolumn">
+                            <th class="clickable-header" onclick="sortTable(0, 'searchTable')">Song</th>
+                            <th class="clickable-header" onclick="sortTable(1, 'searchTable')">Artist</th>
+                            <th class="clickable-header" onclick="sortTable(2, 'searchTable')">Genre</th>
+                            <th class="clickable-header" onclick="sortTable(3, 'searchTable')">Version</th>
+                        </tr>
+                    </thead>
                     <?php foreach ($results as $result) : ?>
                         <tr>
                             <td><?php echo $result['SongName']; ?></td>

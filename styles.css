@@ -87,12 +87,14 @@ body {
 
 .table-container2 {
   width: 80%;
-  max-width: 800px;
+  max-width: 500px;
+  max-height: 700px;
   margin: 0 auto;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
 }
 
 .selected {
@@ -287,6 +289,10 @@ table {
   /* Neon pink shadow for the table */
 }
 
+thead{
+  border: 1px solid #ddd;
+}
+
 th,
 td {
   border: 1px solid #ddd;
@@ -309,6 +315,14 @@ tr {
 }
 
 tr:hover {
+  background-color: #27233a;
+  /* Slightly lighter background for hover */
+  box-shadow: 0 0 5px #00ff41, /* Inner glow */ 0 0 10px #00ff41,
+    /* Middle glow */ 0 0 15px #00ff41, /* Outer glow */ 0 0 20px #00ff41;
+  /* Far outer glow */
+}
+
+th:hover {
   background-color: #27233a;
   /* Slightly lighter background for hover */
   box-shadow: 0 0 5px #00ff41, /* Inner glow */ 0 0 10px #00ff41,
@@ -367,9 +381,15 @@ p {
     /* Middle glow */ 0 0 15px #ff43a4, /* Outer glow */ 0 0 20px #ff43a4; /* Far outer glow */
 }
 
+.headcolumn{
+  position: sticky;
+  top: 0;
+  border: 1px solid white;
+}
+
 .songCover {
-  width: 250px; /* specify the width */
-  height: 250px; /* specify the height */
+  width: 128px; /* specify the width */
+  height: 128px; /* specify the height */
   object-fit: cover; /* this will ensure that the aspect ratio of the images is maintained */
 }
 

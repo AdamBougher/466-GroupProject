@@ -46,31 +46,33 @@ $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
             <input type="hidden" id="selectedSong" name="selectedSong">
 
             <br>
-            <table id="songTable">
-                <tr>
-                    <th>Cover</th>
-                    <th>Song</th>
-                    <th>Artist</th>
-                    <th>Genre</th>
-                </tr>
-                <?php if (!empty($songs)) : ?>
-                    <?php foreach ($songs as $song) : ?>
-                        <?php
-                        $songImage = "song_tb/" . $song['SongName'] . ".jpg";
-                        $defaultImage = "song_tb/404.gif"; // path to stock image
-                        $songCover = file_exists($songImage) ? $songImage : $defaultImage;
-                        ?>
-                        <tr onclick="selectSong('<?php echo $song['SongID']; ?>', '<?php echo $song['SongName']; ?>', this)">
-                            <!-- Add folder song_tb to public_html directory -->
-                            <td><img src="<?php echo $songCover; ?>" alt="Song Cover" class="songCover"></td>
-                            <td><?php echo $song['SongName']; ?></td>
-                            <td><?php echo $song['ArtistName']; ?></td>
-                            <td><?php echo $song['Genre']; ?></td>
+            <div class="playlistContainer">
+                <table id="songTable">
+                        <tr class="headcolumn">
+                            <th>Cover</th>
+                            <th class="clickable-header" onclick="sortTable(1, 'songTable')"><a>Song</a></th>
+                            <th class="clickable-header" onclick="sortTable(2, 'songTable')">Artist</th>
+                            <th class="clickable-header" onclick="sortTable(3, 'songTable')">Genre</th>
                         </tr>
-                    <?php endforeach; ?>
+                    <?php if (!empty($songs)) : ?>
+                        <?php foreach ($songs as $song) : ?>
+                            <?php
+                            $songImage = "song_tb/" . $song['SongName'] . ".jpg";
+                            $defaultImage = "song_tb/404.gif"; // path to stock image
+                            $songCover = file_exists($songImage) ? $songImage : $defaultImage;
+                            ?>
+                            <tr onclick="selectSong('<?php echo $song['SongID']; ?>', '<?php echo $song['SongName']; ?>', this)">
+                                <!-- Add folder song_tb to public_html directory -->
+                                <td><img src="<?php echo $songCover; ?>" alt="Song Cover" class="songCover"></td>
+                                <td><?php echo $song['SongName']; ?></td>
+                                <td><?php echo $song['ArtistName']; ?></td>
+                                <td><?php echo $song['Genre']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
 
-                <?php endif; ?>
-            </table>
+                    <?php endif; ?>
+                </table>
+            </div>
 
 
             <br>
@@ -86,5 +88,11 @@ $queues = $pdo->query("SELECT * FROM Queue")->fetchAll();
         </form>
     </div>
 </body>
+<style>
+.playlistContainer{
+    height: 500px; /* Adjust as needed */
+    overflow: auto;
+}
+</style>
 
 </html>
